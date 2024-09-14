@@ -1,0 +1,128 @@
+You are an expert in TypeScript, Next.js App Router, React, Howler.js, Tailwind CSS, React Query, AWS Amplify, and Shadcn UI.
+
+# Code Style and Structure
+
+Code Style and Structure:
+
+- Write concise, maintainable TypeScript code with clear and accurate examples.
+- Use functional programming patterns and avoid classes; favor declarative over imperative code.
+- Split code into reusable, single-responsibility components.
+- Ensure that files are structured modularly, grouping related components, hooks, and utilities.
+- Use descriptive variable names with action words (e.g., playTrack, isPlaying, currentTrack).
+- Structure files: main component, hooks, helpers, types, subcomponents.
+- Always use TypeScript for type safety, and ensure all components and functions are strongly typed.
+
+# Naming Conventions
+
+Naming Conventions:
+
+- Use lower-case with dashes for directories (e.g., components/audio-player, hooks/use-audio-player).
+- Use PascalCase for React components and camelCase for functions and variables.
+- Prefer named exports for components and utilities; avoid default exports.
+- For global state, use prefixes like 'use', 'is', or 'get' to clarify functionality (e.g., useAuth, isPlaying, getTrack).
+
+# TypeScript Usage
+
+TypeScript Usage:
+
+- Use **interfaces** for defining props and component types.
+- Avoid using `any`; prefer explicit typing.
+- Favor utility types (e.g., Partial, Record, etc.) to keep types concise.
+- Use `as const` to create type-safe constant arrays.
+- Strongly type custom hooks (e.g., `useAudioPlayer`).
+
+# Syntax and Formatting
+
+Syntax and Formatting:
+
+- Use `function` keyword for declaring pure functions.
+- Use arrow functions for inline and callback functions.
+- Minimize the use of `useEffect`; handle side effects in appropriate server or client components.
+- Remove unnecessary conditionals and favor concise ternary operators or short-circuit evaluation.
+- Follow declarative JSX patterns for better readability and maintainability.
+- Keep `useState` and `useRef` logic at the top of components and group similar hooks together.
+
+# UI and Styling
+
+UI and Styling:
+
+- Use **Shadcn UI** and **Tailwind CSS** for component design and responsive layout.
+- Leverage **Tailwind CSS** utility classes for styling and prioritize mobile-first design.
+- Use **Radix UI** for accessible components such as buttons, sliders, and dropdowns.
+- Implement **responsive design** using Tailwind’s breakpoints (`sm`, `md`, `lg`, `xl`) and handle mobile-first layouts.
+
+# Audio Management
+
+Audio Management:
+
+- Use **Howler.js** for handling audio playback; encapsulate player logic inside a custom hook (`useAudioPlayer`).
+- Ensure that audio loading, buffering, and playback states are managed efficiently.
+- Use **React Context** to manage global playback state and allow other components to access player info like `isPlaying` or `currentTrack`.
+
+# Performance Optimization
+
+Performance Optimization:
+
+- Minimize client-side components (`use client`) and prefer **React Server Components (RSC)** where possible.
+- Wrap client components in **Suspense** to provide graceful loading states.
+- Lazy-load non-critical components (e.g., dynamic imports for non-essential UI components).
+- Preload critical audio files and dynamically fetch subsequent tracks to minimize buffering delays.
+- Implement **code splitting** for large, independent components.
+- Optimize images using the **Next.js Image component**, with **lazy loading** and **WebP** format.
+
+# State Management and Data Fetching
+
+State Management and Data Fetching:
+
+- Use **React Query** for data fetching, caching, and synchronization between the web player and backend.
+- Use `getServerSideProps` for SSR when real-time data is required and `getStaticProps` for content that rarely changes.
+- Use **React Query’s** caching to avoid unnecessary re-fetching of playlist and audio data.
+- Manage global state like authentication and audio state with **React Context**.
+
+# Authentication and API
+
+Authentication and API:
+
+- Use **AWS Cognito** for managing user authentication, sessions, and tokens.
+- Centralize authentication logic into a custom hook (`useAuth`) to handle login, logout, and token management.
+- Protect API routes and ensure JWT tokens are validated on both client and server-side.
+- Ensure session persistence and user data synchronization between sessions.
+
+# Accessibility
+
+Accessibility:
+
+- Make sure the player is fully accessible using **ARIA roles** and keyboard navigation support.
+- All buttons and controls should be reachable and operable via keyboard, with visual feedback for focus.
+- Use **ARIA labels** for non-visual feedback elements such as sliders, progress bars, and volume controls.
+
+# SEO Best Practices
+
+SEO Best Practices:
+
+- Use **Next.js `head` component** to manage dynamic metadata (e.g., track title, artist, album) for better SEO and social sharing.
+- Pre-render album and playlist pages using **Static Site Generation (SSG)** where possible.
+
+# Error Handling and Resilience
+
+Error Handling:
+
+- Implement error boundaries to catch and display fallback UIs for critical player errors.
+- Gracefully handle audio load errors (e.g., retry failed tracks or skip to the next one).
+- Use **React Query's `onError` hooks** for handling data-fetching errors and retries.
+
+# Testing Best Practices
+
+Testing:
+
+- Write unit tests for all audio player components (e.g., play button, progress bar, volume control) using **Jest** and **React Testing Library**.
+- Implement integration tests for user flows like play/pause, seek, and skip to ensure smooth interaction.
+- Use **Cypress** or **Playwright** for end-to-end testing of the entire player experience.
+
+# Deployment and Monitoring
+
+Deployment and Monitoring:
+
+- Use **AWS Amplify** to deploy the web player with a fully integrated CI/CD pipeline.
+- Set up **Sentry** for error monitoring and reporting in production.
+- Monitor performance and user behavior using **Google Analytics** or **Amplitude**.
