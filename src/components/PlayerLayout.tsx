@@ -6,7 +6,7 @@ import { Search, Home, User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { LeftSidebarComponent } from '@/components/left-sidebar';
-import { MainContentComponent } from '@/components/main-content';
+import { MainContent } from '@/components/main-content';
 
 export function PlayerLayout() {
   const [leftWidth, setLeftWidth] = useState(250);
@@ -48,7 +48,7 @@ export function PlayerLayout() {
         </ResizableBox>
 
         <div className="flex-1 overflow-auto p-4">
-          <MainContentComponent onBookSelect={() => {}} />
+          <MainContent onBookSelect={() => {}} />
         </div>
 
         <ResizableBox

@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@shadcn/ui": "^0.0.4",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/howler": "^2.2.7",
     "@types/node": "^20",
     "@types/react": "^18",
