@@ -26,7 +26,7 @@ interface BookCardProps {
 function BookCard({ book, onClick }: BookCardProps) {
   return (
     <Card
-      className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg shadow-sm hover:shadow-md active:scale-95 transition duration-200"
+      className="cursor-pointer bg-white hover:bg-gray-100 rounded-lg shadow-sm hover:shadow-md active:scale-95 transition duration-200 border-0"
       onClick={onClick}
     >
       <CardContent className="p-2">

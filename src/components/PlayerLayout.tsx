@@ -13,8 +13,8 @@ export function PlayerLayout() {
   const [rightWidth, setRightWidth] = useState(300);
 
   return (
-    <div className="flex flex-col h-screen">
-      <header className="flex items-center justify-between p-4 border-b">
+    <div className="flex flex-col h-screen bg-gray-100">
+      <header className="flex bg-white items-center justify-between p-4">
         <div className="text-2xl font-bold">Logo</div>
         <div className="flex items-center space-x-2 flex-1 max-w-xl mx-4">
           <Button variant="ghost" size="icon">
@@ -30,7 +30,7 @@ export function PlayerLayout() {
         </Button>
       </header>
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden p-4 space-x-4">
         <ResizableBox
           width={leftWidth}
           height={Infinity}
@@ -38,16 +38,16 @@ export function PlayerLayout() {
           maxConstraints={[400, Infinity]}
           onResize={(e, { size }) => setLeftWidth(size.width)}
           handle={
-            <div className="w-1 bg-gray-300 hover:bg-gray-400 cursor-col-resize absolute right-0 top-0 bottom-0" />
+            <div className="w-0.5 hover:bg-gray-200 cursor-col-resize absolute right-0 top-0 bottom-0" />
           }
-          className="border-r relative h-full" // Added h-full here
+          className="relative h-full rounded-lg overflow-hidden bg-white"
         >
           <div className="h-full overflow-y-auto">
             <LeftSidebarComponent />
           </div>
         </ResizableBox>
 
-        <div className="flex-1 overflow-auto p-4">
+        <div className="flex-1 overflow-auto rounded-lg bg-white">
           <MainContent onBookSelect={() => {}} />
         </div>
 
@@ -58,9 +58,9 @@ export function PlayerLayout() {
           maxConstraints={[400, Infinity]}
           onResize={(e, { size }) => setRightWidth(size.width)}
           handle={
-            <div className="w-1 bg-gray-300 hover:bg-gray-400 cursor-col-resize absolute left-0 top-0 bottom-0" />
+            <div className="w-0.5 cursor-col-resize hover:bg-gray-200 absolute left-0 top-0 bottom-0" />
           }
-          className="border-l relative"
+          className="relative rounded-lg overflow-hidden bg-white"
           resizeHandles={['w']}
         >
           <div className="h-full overflow-y-auto p-4">
@@ -78,7 +78,7 @@ export function PlayerLayout() {
         </ResizableBox>
       </div>
 
-      <footer className="border-t p-4">
+      <footer className="p-4 bg-white">
         {/* Audio player controls */}
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
