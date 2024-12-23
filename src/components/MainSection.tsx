@@ -22,7 +22,7 @@ export function MainSection({
       <ResizableBox
         width={leftWidth}
         height={Infinity}
-        minConstraints={[200, Infinity]}
+        minConstraints={[20, Infinity]}
         maxConstraints={[400, Infinity]}
         onResize={(e, { size }) => setLeftWidth(size.width)}
         handle={
