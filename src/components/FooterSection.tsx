@@ -87,9 +87,9 @@ export function FooterSection() {
   return (
     <>
       <section className="bg-[#FFF9F2] w-full pt-16">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-800">
               What The Tribe is Saying...
             </h2>
             <div className="flex gap-4">
@@ -108,13 +108,12 @@ export function FooterSection() {
                   width={24} 
                   height={24}
                   className="rotate-180"
-
                 />
               </button>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-16">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
             ))}
@@ -123,8 +122,8 @@ export function FooterSection() {
       </section>
 
       <footer className="bg-[#FFF9F2] w-full py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Logo and Copyright */}
             <div className="space-y-4">
               <Image 
@@ -134,25 +133,25 @@ export function FooterSection() {
                 height={32} 
                 className="mb-4"
               />
-              <p className="text-gray-800/80">
+              <p className="text-gray-800/80 text-sm md:text-base">
                 ©2016-2024 Abantu Audio. All rights reserved
               </p>
             </div>
 
             {/* Navigation */}
             <div className="space-y-4">
-              <h3 className="font-semibold text-gray-800">NAVIGATION</h3>
+              <h3 className="font-semibold text-gray-800 text-sm md:text-base">NAVIGATION</h3>
               <nav className="flex flex-col space-y-4">
-                <Link href="/" className="text-gray-800/80 hover:text-gray-800">
+                <Link href="/" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   Home
                 </Link>
-                <Link href="/narrators" className="text-gray-800/80 hover:text-gray-800">
+                <Link href="/narrators" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   For Narrators
                 </Link>
-                <Link href="/publishers" className="text-gray-800/80 hover:text-gray-800">
+                <Link href="/publishers" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   For Publishers
                 </Link>
-                <Link href="/merch" className="text-gray-800/80 hover:text-gray-800">
+                <Link href="/merch" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   Merch
                 </Link>
               </nav>
@@ -160,15 +159,15 @@ export function FooterSection() {
 
             {/* Contact */}
             <div className="space-y-4">
-              <h3 className="font-semibold text-gray-800">CONTACT</h3>
+              <h3 className="font-semibold text-gray-800 text-sm md:text-base">CONTACT</h3>
               <div className="flex flex-col space-y-4">
-                <p className="text-gray-800/80">+1 (000) 000-0000</p>
-                <p className="text-gray-800/80">holla@abantuaudio.com</p>
+                <p className="text-gray-800/80 text-sm md:text-base">+1 (000) 000-0000</p>
+                <p className="text-gray-800/80 text-sm md:text-base">holla@abantuaudio.com</p>
               </div>
               
               {/* Social Media */}
-              <div className="pt-8">
-                <h3 className="font-semibold text-gray-800 mb-4">Follow us</h3>
+              <div className="pt-6">
+                <h3 className="font-semibold text-gray-800 mb-4 text-sm md:text-base">Follow us</h3>
                 <div className="flex space-x-4">
                   <Link href="#" className="text-[#44A1D5]">
                     <Image 
