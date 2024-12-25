@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { StoriesSection } from "@/components/StoriesSection";
-import { UniversityPressSection } from "@/components/UniversityPressSection";
+// import { UniversityPressSection } from "@/components/UniversityPressSection";
 import { DiscordSection } from "@/components/DiscordSection";
 import { BarsSection } from "@/components/BarsSection";
 import { FooterSection } from "@/components/FooterSection";
@@ -13,7 +13,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <StoriesSection />
-        <UniversityPressSection />
+        {/* <UniversityPressSection /> */}
         <DiscordSection />
         <BarsSection />
         <FooterSection />

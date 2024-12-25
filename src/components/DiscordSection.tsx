@@ -1,24 +1,28 @@
 import { Check } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import Image from "next/image";
 
 export function DiscordSection() {
   return (
     <section className="relative w-full flex items-center px-4 py-10 md:py-20 md:px-5 lg:px-7 bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-10 max-w-6xl mx-auto">
-        {/* Left side - Image */}
-        <div className="relative">
-          <img
-            src="/discord.png"
-            alt="Discord Community Preview"
-            className="w-full max-w-[720px] h-auto mx-auto lg:mx-0"
-          />
-        </div>
-
-        {/* Right side - Content */}
-        <div className="flex flex-col justify-center space-y-5 md:space-y-7 text-center lg:text-left">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-7 lg:gap-10 max-w-6xl mx-auto">
+        {/* Content */}
+        <div className="flex flex-col justify-center space-y-5 md:space-y-7 order-1 lg:order-none">
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
             Where The Conversation Starts
           </h2>
+          
+          {/* Image shown on mobile only */}
+          <div className="lg:hidden relative">
+            <Image
+              src="/discord.png"
+              alt="Discord Community Preview"
+              width={720}
+              height={480}
+              className="w-full h-auto"
+            />
+          </div>
+
           <p className="text-[#333333]/80 text-sm sm:text-base md:text-lg">
             Pull up to the Abantu Discord—a place where we chop it up about books, culture, and everything in between. Join the tribe and be part of the movement.
           </p>
@@ -55,6 +59,17 @@ export function DiscordSection() {
               Join the discord
             </PrimaryButton>
           </div>
+        </div>
+
+        {/* Image shown only on desktop */}
+        <div className="hidden lg:block relative">
+          <Image
+            src="/discord.png"
+            alt="Discord Community Preview"
+            width={720}
+            height={480}
+            className="w-full h-auto"
+          />
         </div>
       </div>
     </section>

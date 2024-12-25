@@ -7,11 +7,11 @@ export function BarsSection() {
     <section className="relative w-full flex items-center px-4 py-10 md:py-20 md:px-5 lg:px-7 bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-10 max-w-6xl mx-auto">
         {/* Left Content */}
-        <div className="space-y-6 md:space-y-7 text-center lg:text-left">
+        <div className="space-y-6 md:space-y-7">
           <h2 className="text-3xl sm:text-[2.8rem] md:text-4xl lg:text-5xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
             Drop a Bar
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-[#333333]/80 max-w-lg mx-auto lg:mx-0">
+          <p className="text-sm sm:text-base md:text-lg text-[#333333]/80 max-w-lg">
             With our &apos;Bars&apos; feature, you can clip the realest lines from your favorite audiobooks and share them with your people. Show your everyone what&apos;s speaking to your soul.
           </p>
 
@@ -56,7 +56,8 @@ export function BarsSection() {
             </div>
           </div>
 
-          <Button className="bg-[#6F4597] text-white border-2 border-[#333333] shadow-[0_4px_0_0_rgba(51,51,51,1)] hover:shadow-none hover:translate-y-1 transition-all group">
+          {/* Hide button on mobile, show on md and up */}
+          <Button className="hidden md:flex bg-[#6F4597] text-white border-2 border-[#333333] shadow-[0_4px_0_0_rgba(51,51,51,1)] hover:shadow-none hover:translate-y-1 transition-all group">
             <span>Get Started</span>
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -64,7 +65,7 @@ export function BarsSection() {
 
         {/* Right Content - Phone UI */}
         <div className="relative mt-7 lg:mt-0">
-          <div className="relative w-full max-w-[370px] aspect-[529/620] mx-auto lg:ml-auto">
+          <div className="relative w-full max-w-[370px] aspect-[529/620] lg:ml-auto">
             <Image
               src="/bars.png"
               alt="Bars UI Preview"
