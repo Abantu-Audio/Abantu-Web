@@ -52,7 +52,7 @@ export function Header() {
         {/* Desktop Navigation Container */}
         <div className="hidden md:flex flex-1 items-center justify-end gap-8">
           {/* Navigation Links */}
-          <div className="flex items-center gap-8 lg:gap-16 text-[#403554]">
+          <div className="flex flex-1 justify-center items-center gap-8 lg:gap-16 text-[#403554]">
             <Link href="/">Home</Link>
             <Link href="/publishers">For Publishers</Link>
             <Link href="/narrators">For Narrators</Link>

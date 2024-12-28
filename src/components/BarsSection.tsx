@@ -8,22 +8,22 @@ export function BarsSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-10 max-w-6xl mx-auto">
         {/* Left Content */}
         <div className="space-y-6 md:space-y-7">
-          <h2 className="text-3xl sm:text-[2.8rem] md:text-4xl lg:text-5xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
             Drop a Bar
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-[#333333]/80 max-w-lg">
+          <p className="text-sm md:text-base text-[#333333]/80 max-w-lg">
             With our &apos;Bars&apos; feature, you can clip the realest lines from your favorite audiobooks and share them with your people. Show your everyone what&apos;s speaking to your soul.
           </p>
 
           <div className="space-y-6 md:space-y-7">
             {/* Feature 1 */}
             <div className="flex gap-4 md:gap-6">
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#6F4597] mt-2" />
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-semibold text-[#6F4597]">
+              <div className="w-2 h-2 rounded-full bg-[#6F4597] mt-1.5" />
+              <div className="space-y-1.5">
+                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">
                   Catch the Vibes
                 </h3>
-                <p className="text-sm sm:text-base text-[#333333]/80">
+                <p className="text-sm text-[#333333]/80">
                   Clip 15-30 seconds of the dopest moments and share them straight from the app.
                 </p>
               </div>
@@ -31,12 +31,12 @@ export function BarsSection() {
 
             {/* Feature 2 */}
             <div className="flex gap-4 md:gap-6">
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#6F4597] mt-2" />
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-semibold text-[#6F4597]">
+              <div className="w-2 h-2 rounded-full bg-[#6F4597] mt-1.5" />
+              <div className="space-y-1.5">
+                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">
                   Start the conversation
                 </h3>
-                <p className="text-sm sm:text-base text-[#333333]/80">
+                <p className="text-sm text-[#333333]/80">
                   Add your own thoughts or let the story speak for itself to connect with your audience on a deeper level.
                 </p>
               </div>
@@ -44,12 +44,12 @@ export function BarsSection() {
 
             {/* Feature 3 */}
             <div className="flex gap-4 md:gap-6">
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#6F4597] mt-2" />
-              <div className="space-y-2">
-                <h3 className="text-xl md:text-2xl font-semibold text-[#6F4597]">
+              <div className="w-2 h-2 rounded-full bg-[#6F4597] mt-1.5" />
+              <div className="space-y-1.5">
+                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">
                   Set the Trend
                 </h3>
-                <p className="text-sm sm:text-base text-[#333333]/80">
+                <p className="text-sm text-[#333333]/80">
                   Post to Instagram, Twitter, or TikTok and watch your people connect over the bars that move you.
                 </p>
               </div>
@@ -65,12 +65,12 @@ export function BarsSection() {
 
         {/* Right Content - Phone UI */}
         <div className="relative mt-7 lg:mt-0">
-          <div className="relative w-full max-w-[370px] aspect-[529/620] lg:ml-auto">
+          <div className="relative block w-full max-w-[370px] aspect-[529/620] lg:ml-auto">
             <Image
               src="/bars.png"
               alt="Bars UI Preview"
               fill
-              className="object-contain"
+              className="w-full object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 370px"
             />
           </div>

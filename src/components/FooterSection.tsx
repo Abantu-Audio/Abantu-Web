@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 
 interface TestimonialProps {
   quote: string;
@@ -26,42 +29,102 @@ const testimonials: TestimonialProps[] = [
     author: "Guy Hawkins",
     rating: 4.6,
     authorImage: ""
+  },
+  {
+    quote: "The African literature collection is unmatched. I've discovered so many amazing authors through this platform.",
+    author: "Sarah Ndlovu",
+    rating: 4.9,
+    authorImage: ""
+  },
+  {
+    quote: "Being able to listen to stories in my native language while doing other tasks has been a game-changer.",
+    author: "Dr. Amina Diallo",
+    rating: 4.7,
+    authorImage: ""
+  },
+  {
+    quote: "The cultural authenticity in the narrations really brings these stories to life. It's like being transported back home.",
+    author: "Michael Okonjo",
+    rating: 4.8,
+    authorImage: ""
   }
 ];
 
+function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
+  const [currentGroup, setCurrentGroup] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const itemsPerGroup = isMobile ? 1 : 3;
+  const totalGroups = Math.ceil(items.length / itemsPerGroup);
+
+  const next = useCallback(() => {
+    setCurrentGroup((current) => (current + 1) % totalGroups);
+  }, [totalGroups]);
+
+  const previous = useCallback(() => {
+    setCurrentGroup((current) => (current - 1 + totalGroups) % totalGroups);
+  }, [totalGroups]);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(next, autoPlayInterval);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, next, autoPlayInterval]);
+
+  return {
+    currentGroup,
+    next,
+    previous,
+    setIsAutoPlaying,
+    totalGroups
+  };
+}
+
 function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProps) {
   return (
-    <div className="bg-white rounded-lg p-6 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
-      <div className="flex justify-between items-start mb-6">
+    <div className="bg-white rounded-lg p-4 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
+      <div className="flex justify-between items-start mb-4">
         <Image
           src="/quote.png"
           alt="quote"
-          width={24}
-          height={24}
+          width={20}
+          height={20}
           className="text-gray-800/80"
         />
         <div className="flex items-center gap-1">
           <Image 
             src="/star.png" 
             alt="star" 
-            width={24} 
-            height={24} 
+            width={20} 
+            height={20} 
             className="text-[#FFBC57]"
           />
-          <span className="text-gray-800">{rating}</span>
+          <span className="text-sm text-gray-800">{rating}</span>
         </div>
       </div>
       
-      <p className="text-gray-800/80 mb-8 min-h-[128px]">{quote}</p>
+      <p className="text-gray-800/80 text-sm mb-6 min-h-[96px]">{quote}</p>
       
-      <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full overflow-hidden">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full overflow-hidden">
           {authorImage ? (
             <Image 
               src={authorImage} 
               alt={author} 
-              width={48} 
-              height={48}
+              width={40} 
+              height={40}
               className="object-cover"
             />
           ) : (
@@ -77,13 +140,15 @@ function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProp
             />
           )}
         </div>
-        <span className="text-gray-800">{author}</span>
+        <span className="text-sm text-gray-800">{author}</span>
       </div>
     </div>
   );
 }
 
 export function FooterSection() {
+  const { currentGroup, next, previous, setIsAutoPlaying, totalGroups } = useCarousel(testimonials);
+
   return (
     <>
       <section className="bg-[#FFF9F2] w-full pt-16">
@@ -93,7 +158,14 @@ export function FooterSection() {
               What The Tribe is Saying...
             </h2>
             <div className="flex gap-4">
-              <button className="w-12 h-[46px] rounded-lg border-2 border-gray-800 flex items-center justify-center bg-white shadow-[0_4px_0_0_rgba(51,51,51,1)]">
+              <button 
+                onClick={() => {
+                  previous();
+                  setIsAutoPlaying(false);
+                }}
+                className="w-12 h-[46px] rounded-lg border-2 border-gray-800 flex items-center justify-center bg-white shadow-[0_4px_0_0_rgba(51,51,51,1)] hover:bg-gray-50 transition-colors"
+                aria-label="Previous testimonial"
+              >
                 <Image 
                   src="/icons/arrow-left.svg" 
                   alt="Previous" 
@@ -101,7 +173,14 @@ export function FooterSection() {
                   height={24} 
                 />
               </button>
-              <button className="w-12 h-[46px] rounded-lg border-2 border-gray-800 flex items-center justify-center bg-[#6F4597] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
+              <button 
+                onClick={() => {
+                  next();
+                  setIsAutoPlaying(false);
+                }}
+                className="w-12 h-[46px] rounded-lg border-2 border-gray-800 flex items-center justify-center bg-[#6F4597] shadow-[0_4px_0_0_rgba(51,51,51,1)] hover:bg-[#5d3b7e] transition-colors"
+                aria-label="Next testimonial"
+              >
                 <Image 
                   src="/icons/arrow-right.svg" 
                   alt="Next" 
@@ -113,10 +192,49 @@ export function FooterSection() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 mb-16">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
+          <div className="relative overflow-hidden mb-16">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ 
+                transform: `translateX(-${currentGroup * 100}%)`,
+              }}
+            >
+              {Array.from({ length: totalGroups }).map((_, groupIndex) => (
+                <div 
+                  key={groupIndex}
+                  className="flex gap-4 lg:gap-8 min-w-full"
+                >
+                  {testimonials
+                    .slice(
+                      groupIndex * (window.innerWidth < 768 ? 1 : 3),
+                      groupIndex * (window.innerWidth < 768 ? 1 : 3) + (window.innerWidth < 768 ? 1 : 3)
+                    )
+                    .map((testimonial, index) => (
+                      <div 
+                        key={index}
+                        className="md:flex-1 w-full"
+                      >
+                        <TestimonialCard {...testimonial} />
+                      </div>
+                    ))}
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center gap-2 mt-6">
+              {Array.from({ length: totalGroups }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setCurrentGroup(index);
+                    setIsAutoPlaying(false);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    currentGroup === index ? 'bg-[#6F4597]' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to testimonial group ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

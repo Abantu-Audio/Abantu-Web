@@ -24,12 +24,12 @@ function BookCard({ title, author, rating, coverUrl }: BookCardProps) {
           />
         </div>
         
-        {/* Play Button - smaller on mobile */}
+        {/* Play Button - smaller on mobile
         <div className="absolute top-1/3 left-1/3">
           <div className="w-[56px] h-[52px] md:w-[76px] md:h-[72px] bg-[#6F459F] rounded-full border-2 border-[#333333] shadow-[0_4px_0_0_rgba(51,51,51,1)] flex items-center justify-center">
             <div className="w-0 h-0 border-t-[10px] md:border-t-[13px] border-t-transparent border-l-[18px] md:border-l-[22px] border-l-white border-b-[10px] md:border-b-[13px] border-b-transparent ml-2" />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Book Info - smaller text on mobile */}

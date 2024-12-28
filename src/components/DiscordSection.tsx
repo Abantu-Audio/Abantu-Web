@@ -9,20 +9,9 @@ export function DiscordSection() {
         {/* Content */}
         <div className="flex flex-col justify-center space-y-5 md:space-y-7 order-1 lg:order-none">
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
-            Where The Conversation Starts
+            Join the Tribe
           </h2>
           
-          {/* Image shown on mobile only */}
-          <div className="lg:hidden relative">
-            <Image
-              src="/discord.png"
-              alt="Discord Community Preview"
-              width={720}
-              height={480}
-              className="w-full h-auto"
-            />
-          </div>
-
           <p className="text-[#333333]/80 text-sm sm:text-base md:text-lg">
             Pull up to the Abantu Discord—a place where we chop it up about books, culture, and everything in between. Join the tribe and be part of the movement.
           </p>
@@ -60,9 +49,14 @@ export function DiscordSection() {
             </PrimaryButton>
           </div>
         </div>
-
-        {/* Image shown only on desktop */}
-        <div className="hidden lg:block relative">
+        <div className="lg-hidden flex flex-1 flex-col b-4 items-center justify-center">
+          <Image
+            src="/abantu-discord.png"
+            alt="Abantu Discord Logo"
+            width={300}
+            height={55}
+            className="mb-8"
+          />
           <Image
             src="/discord.png"
             alt="Discord Community Preview"
