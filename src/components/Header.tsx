@@ -22,8 +22,7 @@ export function Header() {
             className="w-[120px] md:w-[160px] h-auto"
             priority
           />
-        </div>
-
+        </div> 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 z-50 relative"

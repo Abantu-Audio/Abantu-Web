@@ -9,10 +9,10 @@ export function BarsSection() {
         {/* Left Content */}
         <div className="space-y-6 md:space-y-7">
           <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
-            Drop a Bar
+            Share a Bar
           </h2>
           <p className="text-sm md:text-base text-[#333333]/80 max-w-lg">
-            With our &apos;Bars&apos; feature, you can clip the realest lines from your favorite audiobooks and share them with your people. Show your everyone what&apos;s speaking to your soul.
+            With our &apos;Bars&apos; feature, you can clip the best lines from your favorite audiobooks and share them with your people. Show your friends what&apos;s speaking to your soul.
           </p>
 
           <div className="space-y-6 md:space-y-7">

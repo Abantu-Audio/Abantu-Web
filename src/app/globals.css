@@ -58,3 +58,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+.custom-wrapper {
+  width: 100%;
+}
+
+.splide__track {
+  overflow: visible;
+}
+
+.splide__slide {
+  opacity: 1;
+  transition: opacity 400ms;
+}
