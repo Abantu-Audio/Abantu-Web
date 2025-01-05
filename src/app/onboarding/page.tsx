@@ -27,29 +27,34 @@ interface OnboardingData {
   lastName?: string;
   age?: string;
   location?: string;
+  ethnicity?: string;
   genres?: string[];
+}
+
+interface StepComponentProps {
+  onDataSubmit: (data: Partial<OnboardingData>) => void;
 }
 
 const steps = [
   {
     title: "Welcome to Abantu",
     description: "Join our community of storytellers and listeners",
-    component: WelcomeStep,
+    component: WelcomeStep as React.ComponentType<StepComponentProps>,
   },
   {
     title: "Tell us about yourself",
     description: "Help us personalize your experience",
-    component: PersonalInfoStep,
+    component: PersonalInfoStep as React.ComponentType<StepComponentProps>,
   },
   {
     title: "Your interests",
     description: "Select the genres and topics that interest you",
-    component: InterestsStep,
+    component: InterestsStep as React.ComponentType<StepComponentProps>,
   },
   {
     title: "Almost there",
     description: "Final step to complete your registration",
-    component: CompletionStep,
+    component: CompletionStep as React.ComponentType<StepComponentProps>,
   },
 ];
 
