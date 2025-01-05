@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { WaitlistForm } from "@/components/WaitlistForm";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
@@ -18,9 +19,13 @@ export function HeroSection() {
             In a world where our voices are too often overlooked, we're turning up the volume. Discover audiobooks that educate, empower, and celebrate your culture.
           </p>
           
-          {/* Waitlist Form */}
+          {/* Join Waitlist Button */}
           <div className="max-w-md mx-auto lg:mx-0">
-            <WaitlistForm />
+            <Link href="/onboarding">
+              <Button size="lg" className="w-full">
+                Join the Waitlist
+              </Button>
+            </Link>
           </div>
         </div>
 
