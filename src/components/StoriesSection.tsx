@@ -59,7 +59,7 @@ export function StoriesSection() {
   ];
 
   return (
-    <section className="bg-white w-full py-12 md:py-12">
+    <section className=" w-full py-12 md:py-12">
         <Splide
           hasTrack={false}
           extensions={{ AutoScroll }}

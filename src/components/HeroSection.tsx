@@ -22,6 +22,7 @@ export function HeroSection() {
             <PrimaryButton fullWidth>
               Join Waitlist
             </PrimaryButton>
+
           </div>
         </div>
 
@@ -32,8 +33,8 @@ export function HeroSection() {
             <Image
               src="/listen.png"
               alt="Hero illustration"
-              width={370}
-              height={469}
+              width={698}
+              height={521}
               className="relative w-full max-w-[720px] h-auto"
               priority
             />
