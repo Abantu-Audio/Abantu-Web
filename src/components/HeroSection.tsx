@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
+import { WaitlistForm } from "@/components/WaitlistForm";
 
 export function HeroSection() {
   return (
@@ -15,14 +15,12 @@ export function HeroSection() {
           </h1>
           
           <p className="text-gray-800/80 text-sm sm:text-base md:text-lg max-w-lg mx-auto lg:mx-0">
-          In a world where our voices are too often overlooked, we’re turning up the volume. Discover audiobooks that educate, empower, and celebrate your culture.
+            In a world where our voices are too often overlooked, we're turning up the volume. Discover audiobooks that educate, empower, and celebrate your culture.
           </p>
-          {/* Primary Button */}
+          
+          {/* Waitlist Form */}
           <div className="max-w-md mx-auto lg:mx-0">
-            <PrimaryButton fullWidth>
-              Join Waitlist
-            </PrimaryButton>
-
+            <WaitlistForm />
           </div>
         </div>
 
