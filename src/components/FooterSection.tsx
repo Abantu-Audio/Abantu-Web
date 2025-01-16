@@ -89,7 +89,9 @@ function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
     next,
     previous,
     setIsAutoPlaying,
-    totalGroups
+    totalGroups,
+    itemsPerGroup,
+    isMobile
   };
 }
 
@@ -148,7 +150,16 @@ function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProp
 }
 
 export function FooterSection() {
-  const { currentGroup, next, previous, setIsAutoPlaying, totalGroups, setCurrentGroup } = useCarousel(testimonials);
+  const { 
+    currentGroup, 
+    next, 
+    previous, 
+    setIsAutoPlaying, 
+    totalGroups, 
+    setCurrentGroup,
+    itemsPerGroup,
+    isMobile 
+  } = useCarousel(testimonials);
 
   return (
     <>
@@ -207,8 +218,8 @@ export function FooterSection() {
                 >
                   {testimonials
                     .slice(
-                      groupIndex * (window.innerWidth < 768 ? 1 : 3),
-                      groupIndex * (window.innerWidth < 768 ? 1 : 3) + (window.innerWidth < 768 ? 1 : 3)
+                      groupIndex * itemsPerGroup,
+                      groupIndex * itemsPerGroup + itemsPerGroup
                     )
                     .map((testimonial, index) => (
                       <div 
