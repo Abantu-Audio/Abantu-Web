@@ -52,12 +52,6 @@ export function BarsSection() {
               </div>
             </div>
           </div>
-
-          {/* Hide button on mobile, show on md and up */}
-          <Link href="/onboarding">
-            <PrimaryButton className='mt-8
-             i9oiou0o8űesxe[q}?C' fullWidth>Get Started</PrimaryButton>
-          </Link>
         </div>
 
         {/* Right Content - Phone UI */}
