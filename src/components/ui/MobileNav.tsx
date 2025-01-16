@@ -26,7 +26,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           >
             Home
           </Link>
-          <Link
+          {/* <Link
             href="/publishers"
             onClick={onClose}
             className="text-white text-lg hover:text-white/80 transition-colors"
@@ -39,20 +39,19 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             className="text-white text-lg hover:text-white/80 transition-colors"
           >
             For Narrators
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             href="/store"
             onClick={onClose}
             className="text-white text-lg hover:text-white/80 transition-colors"
           >
             Merch Store
+          </Link> */}
+          <Link href="/onboarding">
+            <PrimaryButton>
+              Join Waitlist
+            </PrimaryButton>
           </Link>
-          <PrimaryButton 
-            onClick={onClose} 
-            className="mt-4 bg-white text-[#403554] hover:bg-white/90"
-          >
-            Join Waitlist
-          </PrimaryButton>
         </div>
       </div>
     </div>

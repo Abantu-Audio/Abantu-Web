@@ -14,6 +14,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto h-full flex items-center justify-between">
         {/* Logo Section */}
         <div className="w-full md:w-auto flex md:justify-start">
+          <Link href="/">
           <Image
             src="/logo.png"
             alt="Abantu Logo"
@@ -22,6 +23,7 @@ export function Header() {
             className="w-[120px] md:w-[160px] h-auto"
             priority
           />
+          </Link>
         </div> 
         {/* Mobile Menu Button */}
         <button
@@ -52,10 +54,10 @@ export function Header() {
         <div className="hidden md:flex flex-1 items-center justify-end gap-8">
           {/* Navigation Links */}
           <div className="flex flex-1 justify-center items-center gap-8 lg:gap-16 text-[#403554]">
-            <Link href="/">Home</Link>
-            <Link href="/publishers">For Publishers</Link>
-            <Link href="/narrators">For Narrators</Link>
-            <Link href="/store">Merch Store</Link>
+            {/* <Link href="/">Home</Link> */}
+            {/* <Link href="/publishers">For Publishers</Link>
+            <Link href="/narrators">For Narrators</Link> */}
+            {/* <Link href="/store">Merch Store</Link> */}
           </div>
 
           {/* CTA Button - Hidden on mobile, visible from md breakpoint */}

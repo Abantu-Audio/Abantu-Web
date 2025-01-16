@@ -255,6 +255,7 @@ export function FooterSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Logo and Copyright */}
             <div className="space-y-4">
+              <Link href="/">
               <Image 
                 src="/logo.png" 
                 alt="Abantu Audio Logo" 
@@ -262,6 +263,7 @@ export function FooterSection() {
                 height={32} 
                 className="mb-4"
               />
+              </Link>
               <p className="text-gray-800/80 text-sm md:text-base">
                 ©2016-2024 Abantu Audio. All rights reserved
               </p>
@@ -274,15 +276,15 @@ export function FooterSection() {
                 <Link href="/" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   Home
                 </Link>
-                <Link href="/narrators" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
+                {/* <Link href="/narrators" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   For Narrators
                 </Link>
                 <Link href="/publishers" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   For Publishers
-                </Link>
-                <Link href="/merch" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
+                </Link> */}
+                {/* <Link href="/merch" className="text-gray-800/80 hover:text-gray-800 text-sm md:text-base">
                   Merch
-                </Link>
+                </Link> */}
               </nav>
             </div>
 
@@ -290,7 +292,7 @@ export function FooterSection() {
             <div className="space-y-4">
               <h3 className="font-semibold text-gray-800 text-sm md:text-base">CONTACT</h3>
               <div className="flex flex-col space-y-4">
-                <p className="text-gray-800/80 text-sm md:text-base">+1 (000) 000-0000</p>
+                {/* <p className="text-gray-800/80 text-sm md:text-base">+1 (000) 000-0000</p> */}
                 <p className="text-gray-800/80 text-sm md:text-base">holla@abantuaudio.com</p>
               </div>
               
@@ -298,7 +300,7 @@ export function FooterSection() {
               <div className="pt-6">
                 <h3 className="font-semibold text-gray-800 mb-4 text-sm md:text-base">Follow us</h3>
                 <div className="flex space-x-4">
-                  <Link href="#" className="text-[#44A1D5]">
+                  <Link href="https://www.facebook.com/abantuaudio/" className="text-[#44A1D5]">
                     <Image 
                       src="/facebook.svg" 
                       alt="Facebook" 
@@ -306,7 +308,7 @@ export function FooterSection() {
                       height={20}
                     />
                   </Link>
-                  <Link href="#" className="text-[#2982D5]">
+                  <Link href="https://www.linkedin.com/company/abantuaudio/" className="text-[#2982D5]">
                     <Image 
                       src="/linkedin.svg" 
                       alt="LinkedIn" 
@@ -314,10 +316,10 @@ export function FooterSection() {
                       height={20}
                     />
                   </Link>
-                  <Link href="#" className="text-[#2982D5]">
+                  <Link href="https://www.instagram.com/abantuaudio/" className="text-[#2982D5]">
                     <Image 
                       src="/instagram.svg" 
-                      alt="Twitter" 
+                      alt="Instagram" 
                       width={22} 
                       height={22}
                     />
