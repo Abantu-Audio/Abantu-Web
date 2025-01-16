@@ -13,38 +13,38 @@ interface TestimonialProps {
 
 const testimonials: TestimonialProps[] = [
   {
-    quote: "I love the clean and simple design. The site has great features too, like the online audio player and personal bookshelf.",
-    author: "Dr. Patrick Johnson",
+    quote: "The uniqueness and availability of books that I may not heard of - you are doing the research for me. That is a bonus.",
+    author: "Stephanie Walton",
     rating: 4.8,
     authorImage: ""
   },
   {
-    quote: "As an English teacher it's an excellent resource for my students. With thousands of audiobooks from numerous sources.",
-    author: "Floyd Miles",
+    quote: "I love the fact that it is innovative and enticing to young adults who are currently working on achieving higher levels of education both through or outside of an institution, and seeking cultural enrichment.",
+    author: "Michelle A.",
     rating: 4.6,
     authorImage: ""
   },
   {
-    quote: "The platform has transformed how I consume literature. The audio quality and narrator selection are exceptional.",
-    author: "Guy Hawkins",
+    quote: "Tells stories omitted at school, sheds light on the history of minorities, awesome quality.",
+    author: "Annonymous",
     rating: 4.6,
     authorImage: ""
   },
   {
-    quote: "The African literature collection is unmatched. I've discovered so many amazing authors through this platform.",
-    author: "Sarah Ndlovu",
+    quote: "This is amazing. I've been looking and yearning for something like this. Thank you",
+    author: "IG: ILOVEYOUTHOUGH",
     rating: 4.9,
     authorImage: ""
   },
   {
-    quote: "Being able to listen to stories in my native language while doing other tasks has been a game-changer.",
-    author: "Dr. Amina Diallo",
+    quote: "It brings knowledge to our history that is forgotten or not even taught.",
+    author: "Anonymous",
     rating: 4.7,
     authorImage: ""
   },
   {
-    quote: "The cultural authenticity in the narrations really brings these stories to life. It's like being transported back home.",
-    author: "Michael Okonjo",
+    quote: "The merge of innovation & education is exceptional",
+    author: "Inga Macingwane",
     rating: 4.8,
     authorImage: ""
   }
@@ -95,7 +95,7 @@ function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
   };
 }
 
-function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProps) {
+function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
   return (
     <div className="bg-white rounded-lg p-4 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
       <div className="flex justify-between items-start mb-4">
@@ -107,14 +107,14 @@ function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProp
           className="text-gray-800/80"
         />
         <div className="flex items-center gap-1">
-          <Image 
+          {/* <Image 
             src="/star.png" 
             alt="star" 
             width={20} 
             height={20} 
             className="text-[#FFBC57]"
-          />
-          <span className="text-sm text-gray-800">{rating}</span>
+          /> */}
+          {/* <span className="text-sm text-gray-800">{rating}</span> */}
         </div>
       </div>
       

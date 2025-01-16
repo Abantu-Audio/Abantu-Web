@@ -6,7 +6,7 @@ import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export const UniversityPressSection: FC = () => {
   return (
-    <section className="relative w-full bg-white py-10 md:py-20 sm:mb-10">
+    <section className="relative w-full  py-10 md:py-20 sm:mb-10">
       <div className="max-w-6xl mx-auto px-4 md:px-5 lg:px-7 flex flex-col lg:flex-row gap-7 lg:gap-10">
         <div className="flex-1">
           <h2 className="text-2xl sm:text-4xl md:text-4xl font-bold text-[#333333] mb-5 lg:mb-7">
