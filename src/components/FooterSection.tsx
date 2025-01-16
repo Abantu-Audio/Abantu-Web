@@ -158,7 +158,6 @@ export function FooterSection() {
     totalGroups, 
     setCurrentGroup,
     itemsPerGroup,
-    isMobile 
   } = useCarousel(testimonials);
 
   return (

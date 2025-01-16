@@ -31,7 +31,7 @@ export function WelcomeStep({ onDataSubmit }: WelcomeStepProps) {
             required
           />
           <p className="text-sm text-muted-foreground">
-            We'll send you updates about your position on the waitlist and notify you when we launch.
+            We&apos;ll send you updates about your position on the waitlist and notify you when we launch.
           </p>
         </div>
       </form>

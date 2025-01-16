@@ -3,13 +3,10 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from 'next/navigation';
 
 export function WaitlistForm() {
   const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,9 +24,8 @@ export function WaitlistForm() {
           onChange={(e) => setEmail(e.target.value)}
           required
           className="flex-grow"
-          disabled={isLoading}
         />
-        <Button type="submit" disabled={isLoading}>
+        <Button type="submit">
           Join Waitlist
         </Button>
       </div>

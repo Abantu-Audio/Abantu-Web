@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { BlackSection } from "@/components/BlackSection";
+// import { BlackSection } from "@/components/BlackSection";
 import { StoriesSection } from "@/components/StoriesSection";
 // import { UniversityPressSection } from "@/components/UniversityPressSection";
 import { DiscordSection } from "@/components/DiscordSection";

@@ -76,7 +76,7 @@ export function StoriesSection() {
         options={{
           type: 'loop',
           gap: '1.5rem',
-          drag: 'free',
+          drag: true,
           arrows: false,
           pagination: false,
           perPage: 4,
