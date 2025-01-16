@@ -163,7 +163,7 @@ export default function OnboardingPage() {
             </p>
           </div>
 
-          <div className="min-h-[400px]">
+          <div className="min-h-[400px] [&_input]:text-base">
             <CurrentStepComponent onDataSubmit={handleStepSubmit} />
           </div>
 
