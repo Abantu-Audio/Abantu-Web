@@ -46,7 +46,7 @@ Syntax and Formatting:
 
 UI and Styling:
 
-- Use **Shadcn UI** and **Tailwind CSS** for component design and responsive layout.
+- Use **Tailwind CSS** for component design and responsive layout.
 - Leverage **Tailwind CSS** utility classes for styling and prioritize mobile-first design.
 - Use **Radix UI** for accessible components such as buttons, sliders, and dropdowns.
 - Implement **responsive design** using Tailwind’s breakpoints (`sm`, `md`, `lg`, `xl`) and handle mobile-first layouts.
