@@ -11,7 +11,7 @@ export function BarsSection() {
           <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
             Share a Bar
           </h2>
-          <p className="text-sm md:text-base text-[#333333]/80 max-w-lg">
+          <p className="text-md md:text-md text-[#333333]/80 max-w-lg">
             With our &apos;Bars&apos; feature, you can clip the best lines from your favorite
             audiobooks and share them with your people. Show your friends what&apos;s speaking to
             your soul.

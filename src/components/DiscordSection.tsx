@@ -13,33 +13,33 @@ export function DiscordSection() {
             Join the Tribe
           </h2>
           
-          <p className="text-[#333333]/80 text-sm sm:text-base md:text-md mt-0">
+          <p className="flex-1 text-[#333333]/80 text-md sm:md md:text-md mt-0">
             Pull up to the Abantu Discord—a place where we chop it up about books, culture, and everything in between. Join the tribe and be part of the movement.
           </p>
 
           <div className="space-y-3 md:space-y-3">
             <div className="flex items-center gap-4">
-              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
+              <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
                 <Check className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
-              <p className="text-[#333333]/80 text-sm sm:text-base md:text-md">
+              <p className="flex-1 text-[#333333]/80 text-md md:text-md">
                 Channels for book clubs, cultural discussions, and exclusive events.
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
-                <Check className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+              <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
+              <Check className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
-              <p className="text-[#333333]/80 text-sm sm:text-base md:text-md">
+              <p className="flex-1 text-[#333333]/80 text-md md:text-md">
                 Be the first to hear about new drops and get early access to features.
               </p>
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
+              <div className="w-7 h-7 md:w-9 md:h-9 rounded-full bg-[#F4EDFD] flex items-center justify-center">
                 <Check className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
-              <p className="text-[#333333]/80 text-sm sm:text-base md:text-md">
-                Link up with a community that gets you.
+              <p className="text-[#333333]/80 text-md sm:text-md md:text-md">
+              Link up with a community that gets you.
               </p>
             </div>
           </div>
