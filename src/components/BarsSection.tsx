@@ -1,6 +1,8 @@
-import Image from "next/image";
-import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+import Image from 'next/image';
+import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { PrimaryButton } from './ui/PrimaryButton';
 
 export function BarsSection() {
   return (
@@ -12,7 +14,9 @@ export function BarsSection() {
             Share a Bar
           </h2>
           <p className="text-sm md:text-base text-[#333333]/80 max-w-lg">
-            With our &apos;Bars&apos; feature, you can clip the best lines from your favorite audiobooks and share them with your people. Show your friends what&apos;s speaking to your soul.
+            With our &apos;Bars&apos; feature, you can clip the best lines from your favorite
+            audiobooks and share them with your people. Show your friends what&apos;s speaking to
+            your soul.
           </p>
 
           <div className="space-y-6 md:space-y-7">
@@ -20,10 +24,7 @@ export function BarsSection() {
             <div className="flex gap-4 md:gap-6">
               <div className="w-2 h-2 rounded-full bg-[#6F4597] mt-1.5" />
               <div className="space-y-1.5">
-                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">
-                  Catch the Vibes
-                </h3>
-                <p className="text-sm text-[#333333]/80">
+                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">Catch the Vibes</h3>km                <p className="text-sm text-[#333333]/80">
                   Clip 15-30 seconds of the dopest moments and share them straight from the app.
                 </p>
               </div>
@@ -37,7 +38,8 @@ export function BarsSection() {
                   Start the conversation
                 </h3>
                 <p className="text-sm text-[#333333]/80">
-                  Add your own thoughts or let the story speak for itself to connect with your audience on a deeper level.
+                  Add your own thoughts or let the story speak for itself to connect with your
+                  audience on a deeper level.
                 </p>
               </div>
             </div>
@@ -46,21 +48,20 @@ export function BarsSection() {
             <div className="flex gap-4 md:gap-6">
               <div className="w-2 h-2 rounded-full bg-[#6F4597] mt-1.5" />
               <div className="space-y-1.5">
-                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">
-                  Set the Trend
-                </h3>
+                <h3 className="text-lg md:text-xl font-semibold text-[#6F4597]">Set the Trend</h3>
                 <p className="text-sm text-[#333333]/80">
-                  Post to Instagram, Twitter, or TikTok and watch your people connect over the bars that move you.
+                  Post to Instagram, Twitter, or TikTok and watch your people connect over the bars
+                  that move you.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Hide button on mobile, show on md and up */}
-          <Button className="hidden md:flex bg-[#6F4597] text-white border-2 border-[#333333] shadow-[0_4px_0_0_rgba(51,51,51,1)] hover:shadow-none hover:translate-y-1 transition-all group">
-            <span>Get Started</span>
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <Link href="/onboarding">
+            <PrimaryButton className='mt-8k-9
+             i9oiou0o8űesxe[q}?C' fullWidth>Get Started</PrimaryButton>
+          </Link>
         </div>
 
         {/* Right Content - Phone UI */}

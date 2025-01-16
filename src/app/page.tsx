@@ -14,7 +14,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <StoriesSection />
-        <BlackSection />
+        {/* <BlackSection /> */}
         {/* <UniversityPressSection /> */}
         <DiscordSection />
         <BarsSection />

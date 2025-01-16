@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export function HeroSection() {
   return (
@@ -16,15 +16,15 @@ export function HeroSection() {
           </h1>
           
           <p className="text-gray-800/80 text-sm sm:text-base md:text-lg max-w-lg mx-auto lg:mx-0">
-            In a world where our voices are too often overlooked, we're turning up the volume. Discover audiobooks that educate, empower, and celebrate your culture.
+            In a world where our voices are too often overlooked, we&apos;re turning up the volume. Discover audiobooks that educate, empower, and celebrate your culture.
           </p>
           
           {/* Join Waitlist Button */}
           <div className="max-w-md mx-auto lg:mx-0">
             <Link href="/onboarding">
-              <Button size="lg" className="w-full">
+              <PrimaryButton fullWidth>
                 Join the Waitlist
-              </Button>
+              </PrimaryButton>
             </Link>
           </div>
         </div>

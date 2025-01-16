@@ -32,57 +32,58 @@ const genderOptions = [
   { value: "prefer_not_to_say", label: "Prefer not to say" },
 ] as const;
 
-// Add countries list (you might want to move this to a separate file)
-const countries = [
-  // North America
-  { value: "US", label: "United States" },
-  { value: "CA", label: "Canada" },
-  
-  // Caribbean
-  { value: "BB", label: "Barbados" },
-  { value: "BS", label: "Bahamas" },
-  { value: "CU", label: "Cuba" },
-  { value: "DM", label: "Dominica" },
-  { value: "DO", label: "Dominican Republic" },
-  { value: "HT", label: "Haiti" },
-  { value: "JM", label: "Jamaica" },
-  { value: "TT", label: "Trinidad and Tobago" },
-  
-  // South America
-  { value: "AR", label: "Argentina" },
-  { value: "BO", label: "Bolivia" },
-  { value: "BR", label: "Brazil" },
-  { value: "CL", label: "Chile" },
-  { value: "CO", label: "Colombia" },
-  { value: "EC", label: "Ecuador" },
-  { value: "GY", label: "Guyana" },
-  { value: "PY", label: "Paraguay" },
-  { value: "PE", label: "Peru" },
-  { value: "SR", label: "Suriname" },
-  { value: "UY", label: "Uruguay" },
-  { value: "VE", label: "Venezuela" },
-  
-  // Africa
-  { value: "NG", label: "Nigeria" },
-  { value: "GH", label: "Ghana" },
-  { value: "SN", label: "Senegal" },
-  { value: "ET", label: "Ethiopia" },
-  { value: "KE", label: "Kenya" },
-  { value: "ZA", label: "South Africa" },
-  { value: "UG", label: "Uganda" },
-  { value: "CM", label: "Cameroon" },
-  { value: "CI", label: "Côte d'Ivoire" },
-  
-  // Europe
-  { value: "GB", label: "United Kingdom" },
-  { value: "FR", label: "France" },
-  { value: "DE", label: "Germany" },
-  { value: "NL", label: "Netherlands" },
-  { value: "PT", label: "Portugal" },
-  
-  // Other
-  { value: "OTHER", label: "Other" }
-] as const;
+// First, let's update the countries data structure to include continent grouping
+const countries = {
+  "North America": [
+    { value: "US", label: "United States" },
+    { value: "CA", label: "Canada" },
+  ],
+  "Caribbean": [
+    { value: "BB", label: "Barbados" },
+    { value: "BS", label: "Bahamas" },
+    { value: "CU", label: "Cuba" },
+    { value: "DM", label: "Dominica" },
+    { value: "DO", label: "Dominican Republic" },
+    { value: "HT", label: "Haiti" },
+    { value: "JM", label: "Jamaica" },
+    { value: "TT", label: "Trinidad and Tobago" },
+  ],
+  "South America": [
+    { value: "AR", label: "Argentina" },
+    { value: "BO", label: "Bolivia" },
+    { value: "BR", label: "Brazil" },
+    { value: "CL", label: "Chile" },
+    { value: "CO", label: "Colombia" },
+    { value: "EC", label: "Ecuador" },
+    { value: "GY", label: "Guyana" },
+    { value: "PY", label: "Paraguay" },
+    { value: "PE", label: "Peru" },
+    { value: "SR", label: "Suriname" },
+    { value: "UY", label: "Uruguay" },
+    { value: "VE", label: "Venezuela" },
+  ],
+  "Africa": [
+    { value: "NG", label: "Nigeria" },
+    { value: "GH", label: "Ghana" },
+    { value: "SN", label: "Senegal" },
+    { value: "ET", label: "Ethiopia" },
+    { value: "KE", label: "Kenya" },
+    { value: "ZA", label: "South Africa" },
+    { value: "UG", label: "Uganda" },
+    { value: "CM", label: "Cameroon" },
+    { value: "CI", label: "Côte d'Ivoire" },
+  ],
+  "Europe": [
+    { value: "GB", label: "United Kingdom" },
+    { value: "FR", label: "France" },
+    { value: "DE", label: "Germany" },
+    { value: "NL", label: "Netherlands" },
+    { value: "PT", label: "Portugal" },
+  ],
+  "Other": [
+    { value: "OTHER", label: "Other" }
+  ]
+} as const;
 
 interface FormErrors {
   firstName?: string;
@@ -307,11 +308,18 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
               <SelectTrigger className={errors.country && touched.country ? "border-red-500" : ""}>
                 <SelectValue placeholder="Select country" />
               </SelectTrigger>
-              <SelectContent className="max-h-[200px] overflow-y-auto">
-                {countries.map((country) => (
-                  <SelectItem key={country.value} value={country.value}>
-                    {country.label}
-                  </SelectItem>
+              <SelectContent className="max-h-[300px] overflow-y-auto">
+                {Object.entries(countries).map(([continent, countryList]) => (
+                  <div key={continent}>
+                    <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground bg-muted">
+                      {continent}
+                    </div>
+                    {countryList.map((country) => (
+                      <SelectItem key={country.value} value={country.value}>
+                        {country.label}
+                      </SelectItem>
+                    ))}
+                  </div>
                 ))}
               </SelectContent>
             </Select>

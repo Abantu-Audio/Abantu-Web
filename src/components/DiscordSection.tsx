@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import Image from "next/image";
+import Link from "next/link";
 
 export function DiscordSection() {
   return (
@@ -44,9 +45,11 @@ export function DiscordSection() {
           </div>
 
           <div className="pt-5">
-            <PrimaryButton>
-              Join the discord
-            </PrimaryButton>
+            <Link href="/onboarding">
+              <PrimaryButton>
+                Join the discord
+              </PrimaryButton>
+            </Link>
           </div>
         </div>
         <div className="lg-hidden flex flex-1 flex-col b-4 items-center justify-center">

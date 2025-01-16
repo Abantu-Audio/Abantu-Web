@@ -20,7 +20,8 @@ export function PrimaryButton({
     <Button
       size={size}
       className={cn(
-        "bg-[#6F459F] hover:bg-[#6F459F]/90 text-white border-2 border-[#403554] shadow-[0_4px_0_0_rgba(51,51,51,1)] max-w-[200px]",
+        "bg-[#6F459F] hover:bg-[#6F459F] text-white border-2 border-[#403554] shadow-[0_4px_0_0_rgba(51,51,51,1)] max-w-[200px] transition-all duration-50",
+        "hover:shadow-[0_2px_0_0_rgba(51,51,51,1)] hover:translate-y-[1px] hover:border-b-[1px]",
         fullWidth ? "w-full" : "sm:w-auto",
         className
       )}

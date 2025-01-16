@@ -59,9 +59,11 @@ export function Header() {
           </div>
 
           {/* CTA Button - Hidden on mobile, visible from md breakpoint */}
-          <PrimaryButton>
-            Join Waitlist
-          </PrimaryButton>
+          <Link href="/onboarding">
+            <PrimaryButton>
+              Join Waitlist
+            </PrimaryButton>
+          </Link>
         </div>
 
         {/* Mobile Navigation */}

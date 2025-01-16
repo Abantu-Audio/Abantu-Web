@@ -85,6 +85,7 @@ function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
 
   return {
     currentGroup,
+    setCurrentGroup,
     next,
     previous,
     setIsAutoPlaying,
@@ -147,7 +148,7 @@ function TestimonialCard({ quote, author, rating, authorImage }: TestimonialProp
 }
 
 export function FooterSection() {
-  const { currentGroup, next, previous, setIsAutoPlaying, totalGroups } = useCarousel(testimonials);
+  const { currentGroup, next, previous, setIsAutoPlaying, totalGroups, setCurrentGroup } = useCarousel(testimonials);
 
   return (
     <>
