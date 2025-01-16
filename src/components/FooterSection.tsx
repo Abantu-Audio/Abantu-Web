@@ -324,6 +324,14 @@ export function FooterSection() {
                       height={22}
                     />
                   </Link>
+                  <Link href="https://discord.gg/megnXExhaT" className="text-[#2982D5]">
+                    <Image 
+                      src="/discord_icon.svg" 
+                      alt="discord" 
+                      width={26} 
+                      height={26}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

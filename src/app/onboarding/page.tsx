@@ -7,7 +7,7 @@ import { WelcomeStep } from "./components/WelcomeStep";
 import { PersonalInfoStep } from "./components/PersonalInfoStep";
 import { InterestsStep } from "./components/InterestsStep";
 import { CompletionStep } from "./components/CompletionStep";
-import { useToast } from "@/components/ui/use-toast";
+// import { useToast } from "@/components/ui/use-toast";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import {
@@ -63,7 +63,7 @@ export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<OnboardingData>({});
   const [showExitDialog, setShowExitDialog] = useState(false);
-  const { toast } = useToast();
+  // const { toast } = useToast();
   const progress = ((currentStep + 1) / steps.length) * 100;
 
   const handleStepSubmit = async (stepData: Partial<OnboardingData>) => {
@@ -71,31 +71,34 @@ export default function OnboardingPage() {
     setFormData(newFormData);
 
     if (currentStep === steps.length - 1) {
-      try {
-        const response = await fetch('/api/waitlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newFormData),
-        });
+      router.push('/');
 
-        if (!response.ok) {
-          throw new Error('Failed to submit waitlist form');
-        }
 
-        toast({
-          title: "Success!",
-          description: "You've been added to our waitlist. Check your email for next steps!",
-        });
-      } catch (error) {
-        toast({
-          title: "Error",
-          description: "Failed to join the waitlist. Please try again.",
-          variant: "destructive",
-        });
-        return;
-      }
+      // try {
+      //   const response = await fetch('/api/waitlist', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //     body: JSON.stringify(newFormData),
+      //   });
+
+      //   if (!response.ok) {
+      //     throw new Error('Failed to submit waitlist form');
+      //   }
+
+      //   toast({
+      //     title: "Success!",
+      //     description: "You've been added to our waitlist. Check your email for next steps!",
+      //   });
+      // } catch (error) {
+      //   toast({
+      //     title: "Error",
+      //     description: "Failed to join the waitlist. Please try again.",
+      //     variant: "destructive",
+      //   });
+      //   return;
+      // }
     }
 
     if (currentStep < steps.length - 1) {

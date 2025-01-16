@@ -45,7 +45,7 @@ export function DiscordSection() {
           </div>
 
           <div className="pt-5">
-            <Link href="/onboarding">
+            <Link href="https://discord.gg/megnXExhaT">
               <PrimaryButton>
                 Join the discord
               </PrimaryButton>
