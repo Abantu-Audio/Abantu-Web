@@ -2,7 +2,6 @@
 
 import { FC } from "react";
 import Image from "next/image";
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 export const UniversityPressSection: FC = () => {
   return (

@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { PrimaryButton } from './ui/PrimaryButton';
 
 export function BarsSection() {
   return (
@@ -8,7 +6,7 @@ export function BarsSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-10 max-w-6xl mx-auto">
         {/* Left Content */}
         <div className="space-y-3 md:space-y-3">
-          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-bold text-[#333333] drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]">
             Share a Bar
           </h2>
           <p className="text-md md:text-md text-[#333333]/80 max-w-lg">
