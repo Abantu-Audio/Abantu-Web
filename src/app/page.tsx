@@ -1,10 +1,8 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-// import { BlackSection } from "@/components/BlackSection";
 import { StoriesSection } from "@/components/StoriesSection";
 import { UniversityPressSection } from "@/components/UniversityPressSection";
 import { DiscordSection } from "@/components/DiscordSection";
-import { BarsSection } from "@/components/BarsSection";
 import { FooterSection } from "@/components/FooterSection";
 import { CollectionsSection } from "@/components/CollectionsSection";
 
@@ -18,7 +16,6 @@ export default function Home() {
         <CollectionsSection />
         <UniversityPressSection />
         <DiscordSection />
-        <BarsSection />
         <FooterSection />
       </div>
     </main>
