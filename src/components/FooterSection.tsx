@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { PrimaryButton } from "./ui/PrimaryButton";
+import Script from "next/script";
 
 interface TestimonialProps {
   quote: string;
@@ -96,9 +97,9 @@ function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
   };
 }
 
-function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
+function TestimonialCard({ quote, author, authorImage, rating }: TestimonialProps) {
   return (
-    <div className="bg-white rounded-3xl p-4 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
+    <article className="bg-white rounded-3xl p-4 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
       <div className="flex justify-between items-start mb-4">
         <Image
           src="/quote.png"
@@ -114,6 +115,7 @@ function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
       <p className="text-gray-800/80 text-sm mb-6 min-h-[96px]">{quote}</p>
       
       <div className="flex items-center gap-3">
+        <span className="sr-only">Rating: {rating} out of 5</span>
         <div className="w-10 h-10 rounded-full overflow-hidden">
           {authorImage ? (
             <Image 
@@ -138,7 +140,34 @@ function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
         </div>
         <span className="text-sm text-gray-800">{author}</span>
       </div>
-    </div>
+    </article>
+  );
+}
+
+function TestimonialsStructuredData({ testimonials }: { testimonials: TestimonialProps[] }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Abantu Audio",
+    "review": testimonials.map(t => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": t.rating,
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": t.author
+      },
+      "reviewBody": t.quote
+    }))
+  };
+
+  return (
+    <Script id="testimonials-jsonld" type="application/ld+json">
+      {JSON.stringify(structuredData)}
+    </Script>
   );
 }
 
@@ -155,12 +184,17 @@ export function FooterSection() {
 
   return (
     <div className="bg-white w-full">
+      <TestimonialsStructuredData testimonials={testimonials} />
+      
       {/* Testimonials Section */}
-      <section className="w-full pt-8 md:pt-16">
+      <section 
+        className="w-full pt-8 md:pt-16"
+        aria-label="Customer Testimonials"
+      >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 mb-12">
             <h2 className="text-3xl md:text-2xl lg:text-4xl font-bold text-gray-800">
-              What The Tribe is Saying...
+              What The Village is Saying...
             </h2>
             <div className="flex gap-4">
               <button 
@@ -246,11 +280,16 @@ export function FooterSection() {
 
       {/* New Footer Design */}
       <div className="bg-white px-4 md:px-12 pb-8 md:pb-12">
-        <footer className="bg-black text-white py-8 md:py-16 px-4 rounded-[25px]">
+        <footer 
+          className="bg-black text-white py-8 md:py-16 px-4 rounded-[25px]"
+          role="contentinfo"
+        >
           <div className="max-w-6xl mx-auto">
             {/* Join Community Section */}
-            <div className="text-center mb-12 ">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Join the Community</h2>
+            <section aria-label="Join Community">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+                Join the Community
+              </h2>
               <p className="text-base md:text-sm lg:text-md mb-6 md:mb-8 max-w-md mx-auto">
                 Bring representation and inspiration into your routine. Explore audiobooks that resonate.
               </p>
@@ -282,89 +321,94 @@ export function FooterSection() {
                 Join the waitlist
               </PrimaryButton>
               </Link>
-            </div>
+            </section>
 
             {/* Footer Links and Info */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
               {/* Logo and Copyright */}
               <div className="text-center md:text-left flex flex-col justify-between">
                 <div>
-                  <Link href="/" className="inline-block">
+                  <Link href="/" aria-label="Abantu Audio Home">
                     <Image 
                       src="/logo_white.png" 
                       alt="Abantu Audio Logo" 
                       width={113} 
                       height={47} 
+                      priority
                     />
                   </Link>
                   <p className="text-sm md:text-base">
-                    ©2024 Abantu Audio
+                    <small>©2024 Abantu Audio</small>
                   </p>
                 </div>
               </div>
 
               {/* Navigation */}
-              <div className="flex items-center md:items-end">
-                <nav className="flex flex-col md:flex-row gap-6 md:gap-12 w-full justify-center items-center">
-                  <Link href="/" className="hover:text-gray-300 transition-colors whitespace-nowrap">
-                    Home
-                  </Link>
-                  {/* <Link href="/narrators" className="hover:text-gray-300 transition-colors whitespace-nowrap">
-                    For Narrators
-                  </Link>
-                  <Link href="/publishers" className="hover:text-gray-300 transition-colors whitespace-nowrap">
-                    For Publishers
-                  </Link>
-                  <Link href="/merch" className="hover:text-gray-300 transition-colors whitespace-nowrap">
-                    Merch
-                  </Link> */}
-                </nav>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex flex-col justify-end text-center md:text-right">
-                <div>
-                  <h3 className="font-semibold mb-4">Follow us</h3>
-                  <div className="flex gap-6 md:gap-4 justify-center md:justify-end">
-                    <Link href="https://www.facebook.com/abantuaudio/" className="hover:opacity-80 transition-opacity">
-                      <Image 
-                        src="/facebook.svg" 
-                        alt="Facebook" 
-                        width={24} 
-                        height={24}
-                        className="w-6 md:w-5"
-                      />
+              <nav aria-label="Footer Navigation">
+                <div className="flex items-center md:items-end">
+                  <div className="flex flex-col md:flex-row gap-6 md:gap-12 w-full justify-center items-center">
+                    {/* <Link href="/" className="hover:text-gray-300 transition-colors whitespace-nowrap">
+                      Home
+                    </Link> */}
+                    {/* <Link href="/narrators" className="hover:text-gray-300 transition-colors whitespace-nowrap">
+                      For Narrators
                     </Link>
-                    <Link href="https://www.linkedin.com/company/abantuaudio/" className="hover:opacity-80 transition-opacity">
-                      <Image 
-                        src="/linkedin.svg" 
-                        alt="LinkedIn" 
-                        width={24} 
-                        height={24}
-                        className="w-6 md:w-5"
-                      />
+                    <Link href="/publishers" className="hover:text-gray-300 transition-colors whitespace-nowrap">
+                      For Publishers
                     </Link>
-                    <Link href="https://www.instagram.com/abantuaudio/" className="hover:opacity-80 transition-opacity">
-                      <Image 
-                        src="/instagram.svg" 
-                        alt="Instagram" 
-                        width={26} 
-                        height={26}
-                        className="w-7 md:w-[22px]"
-                      />
-                    </Link>
-                    <Link href="https://discord.gg/megnXExhaT" className="hover:opacity-80 transition-opacity">
-                      <Image 
-                        src="/discord_icon.svg" 
-                        alt="Discord" 
-                        width={31} 
-                        height={24}
-                        className="w-8 md:w-[27px]"
-                      />
-                    </Link>
+                    <Link href="/merch" className="hover:text-gray-300 transition-colors whitespace-nowrap">
+                      Merch
+                    </Link> */}
                   </div>
                 </div>
-              </div>
+              </nav>
+
+              {/* Social Links */}
+              <section aria-label="Social Media Links">
+                <h3 className="font-semibold mb-4">Follow us</h3>
+                <div className="flex gap-6 md:gap-4 justify-center md:justify-end">
+                  <Link 
+                    href="https://www.facebook.com/abantuaudio/" 
+                    aria-label="Visit our Facebook page"
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    <Image 
+                      src="/facebook.svg" 
+                      alt="Facebook" 
+                      width={24} 
+                      height={24}
+                      className="w-6 md:w-5"
+                    />
+                  </Link>
+                  <Link href="https://www.linkedin.com/company/abantuaudio/" className="hover:opacity-80 transition-opacity">
+                    <Image 
+                      src="/linkedin.svg" 
+                      alt="LinkedIn" 
+                      width={24} 
+                      height={24}
+                      className="w-6 md:w-5"
+                    />
+                  </Link>
+                  <Link href="https://www.instagram.com/abantuaudio/" className="hover:opacity-80 transition-opacity">
+                    <Image 
+                      src="/instagram.svg" 
+                      alt="Instagram" 
+                      width={26} 
+                      height={26}
+                      className="w-7 md:w-[22px]"
+                    />
+                  </Link>
+                  <Link href="https://discord.gg/megnXExhaT" className="hover:opacity-80 transition-opacity">
+                    <Image 
+                      src="/discord_icon.svg" 
+                      alt="Discord" 
+                      width={31} 
+                      height={24}
+                      className="w-8 md:w-[27px]"
+                    />
+                  </Link>
+                </div>
+              </section>
             </div>
           </div>
         </footer>
