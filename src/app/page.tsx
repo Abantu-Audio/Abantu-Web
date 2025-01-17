@@ -6,6 +6,7 @@ import { UniversityPressSection } from "@/components/UniversityPressSection";
 import { DiscordSection } from "@/components/DiscordSection";
 import { BarsSection } from "@/components/BarsSection";
 import { FooterSection } from "@/components/FooterSection";
+import { CollectionsSection } from "@/components/CollectionsSection";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <StoriesSection />
-        {/* <BlackSection /> */}
+        <CollectionsSection />
         <UniversityPressSection />
         <DiscordSection />
         <BarsSection />
