@@ -12,7 +12,7 @@ export function CollectionsSection() {
             <div className="bg-black rounded-[20px] sm:rounded-[30px] p-6 sm:p-8 md:flex-1 h-full flex flex-col justify-between">
               {/* Title section at the top */}
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 mt-4 sm:mt-8 sm:w-[50%]">
+                <h2 className="text-4xl sm:text-4xl font-bold text-white mb-12 mt-4 sm:mt-8 sm:w-[50%]">
                   Discover Curated Collections
                 </h2>
               </div>
