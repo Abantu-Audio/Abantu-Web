@@ -13,7 +13,7 @@ export function DiscordSection() {
             Join the Tribe
           </h2>
           
-          <p className="flex-1 text-[#333333]/80 text-md sm:md md:text-md mt-0">
+          <p className=" text-[#333333]/80 text-md sm:md md:text-md mt-0">
             Pull up to the Abantu Discord—a place where we chop it up about books, culture, and everything in between. Join the tribe and be part of the movement.
           </p>
 

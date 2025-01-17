@@ -10,7 +10,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="h-[100px] bg-[#FFF9F2] px-4 md:px-5 lg:px-7 relative">
+    <nav className="h-[100px]  px-4 md:px-5 lg:px-7 relative">
       <div className="max-w-6xl mx-auto h-full flex items-center justify-between">
         {/* Logo Section */}
         <div className="w-full md:w-auto flex md:justify-start">

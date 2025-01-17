@@ -67,7 +67,7 @@ export const UniversityPressSection: FC = () => {
             <h3 className="text-lg md:text-xl font-bold text-[#333333] mb-3">
               Why University Presses?
             </h3>
-            <p className="text-[#333333]/80 text-sm sm:text-base">
+            <p className="text-[#333333]/80 text-sm sm:text-sm">
               They&apos;re the hidden gems of publishing—producing trusted, groundbreaking content that deserves a bigger spotlight. We&apos;re here to make that happen.
             </p>
           </div>
