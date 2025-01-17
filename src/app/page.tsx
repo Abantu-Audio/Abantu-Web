@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Discover curated audiobooks and dramas that amplify underrepresented voices. Explore stories that educate, inspire, and celebrate culture.',
   keywords: 'Curated audiobooks, Black and Latinx stories, Diverse voices, Cultural representation, Edutainment, Audiobook collections',
   openGraph: {
-    title: 'Abantu Audio | Amplifying Black & Latinx Voices',
+    title: 'Abantu Audio | Amplifying underrepresented voices',
     description: 'Explore curated audiobooks and dramas that inspire, educate, and celebrate diverse cultures. Join the Abantu movement today.',
     images: [
       {
@@ -27,9 +27,27 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Abantu Audio | African Literature Audiobooks',
-    description: 'Discover and listen to African literature audiobooks',
+    title: 'Abantu Audio | Curated Audiobooks',
+    description: 'Discover and listen to culturally relevant audiobooks',
     images: ['/splash-hero.png'],
+  },
+  manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#6F4597'
+      }
+    ]
   },
   robots: {
     index: true,
