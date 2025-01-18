@@ -9,11 +9,11 @@ export const UniversityPressSection: FC = () => {
       <div className="max-w-6xl mx-auto px-4 md:px-5 lg:px-7 flex flex-col lg:flex-row gap-7 lg:gap-10">
         <div className="flex-1">
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#333333] mb-5 lg:mb-7">
-            Bridging Knowledge & Culture
+            University Partnerships
           </h2>
           
           <p className="text-[#333333]/80 text-md sm:text-md md:text-md mb-10">
-            Aligning with academia is about more than partnerships—it&apos;s about trust. In a time when fake news dominates and reliable information feels scarce, we amplify stories rooted in knowledge and truth.
+            Aligning with academia is about more than partnerships—it&apos;s about trust. In a time when misinformation dominates and reliable information feels scarce, we amplify stories rooted in knowledge and truth.
           </p>
 
           <div className="space-y-8">
