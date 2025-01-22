@@ -96,7 +96,7 @@ function useCarousel(items: TestimonialProps[], autoPlayInterval = 5000) {
   };
 }
 
-function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
+function TestimonialCard({ quote, author }: TestimonialProps) {
   return (
     <div className="bg-white rounded-3xl p-4 border-2 border-[#403455] shadow-[0_4px_0_0_rgba(51,51,51,1)]">
       <div className="flex justify-between items-start mb-4">
@@ -114,7 +114,7 @@ function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
       <p className="text-gray-800/80 text-sm mb-6 min-h-[96px]">{quote}</p>
       
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full overflow-hidden">
+        {/* <div className="w-10 h-10 rounded-full overflow-hidden">
           {authorImage ? (
             <Image 
               src={authorImage} 
@@ -123,19 +123,9 @@ function TestimonialCard({ quote, author, authorImage }: TestimonialProps) {
               height={40}
               className="object-cover"
             />
-          ) : (
-            <div 
-              className={`w-full h-full ${
-                Math.random() < 0.33
-                  ? "bg-gray-600"
-                  : Math.random() < 0.66
-                  ? "bg-gray-500"
-                  : "bg-gray-400"
-              }`}
-              aria-label={`${author}'s avatar placeholder`}
-            />
-          )}
-        </div>
+          ) : <></>
+          }
+        </div> */}
         <span className="text-sm text-gray-800">{author}</span>
       </div>
     </div>
