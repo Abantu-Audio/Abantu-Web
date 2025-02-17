@@ -177,17 +177,17 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 border-gray-200 shadow-sm">
       <form id="step-1-form" onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="firstName">First name</Label>
+            <Label htmlFor="firstName" className="text-gray-700">First name</Label>
             <Input
               id="firstName"
               value={formData.firstName}
               onChange={(e) => handleChange("firstName", e.target.value)}
               onBlur={() => handleBlur("firstName")}
-              className={errors.firstName ? "border-red-500" : ""}
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.firstName ? "border-red-500" : ""}`}
               aria-invalid={!!errors.firstName}
               aria-describedby={errors.firstName ? "firstName-error" : undefined}
             />
@@ -196,13 +196,13 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
             )}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="lastName">Last name</Label>
+            <Label htmlFor="lastName" className="text-gray-700">Last name</Label>
             <Input
               id="lastName"
               value={formData.lastName}
               onChange={(e) => handleChange("lastName", e.target.value)}
               onBlur={() => handleBlur("lastName")}
-              className={errors.lastName ? "border-red-500" : ""}
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.lastName ? "border-red-500" : ""}`}
               aria-invalid={!!errors.lastName}
               aria-describedby={errors.lastName ? "lastName-error" : undefined}
             />
@@ -213,13 +213,15 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="age">Age</Label>
+          <Label htmlFor="age" className="text-gray-700">Age</Label>
           <Select
             value={formData.age}
             onValueChange={(value) => handleChange("age", value)}
             onOpenChange={() => handleBlur("age")}
           >
-            <SelectTrigger className={errors.age && touched.age ? "border-red-500" : ""}>
+            <SelectTrigger 
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.age && touched.age ? "border-red-500" : ""}`}
+            >
               <SelectValue placeholder="Select your age group" />
             </SelectTrigger>
             <SelectContent className="max-h-[200px] overflow-y-auto">
@@ -236,13 +238,15 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="gender">Gender</Label>
+          <Label htmlFor="gender" className="text-gray-700">Gender</Label>
           <Select
             value={formData.gender}
             onValueChange={(value) => handleChange("gender", value)}
             onOpenChange={() => handleBlur("gender")}
           >
-            <SelectTrigger className={errors.gender && touched.gender ? "border-red-500" : ""}>
+            <SelectTrigger 
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.gender && touched.gender ? "border-red-500" : ""}`}
+            >
               <SelectValue placeholder="Select your gender identity" />
             </SelectTrigger>
             <SelectContent className="max-h-[200px] overflow-y-auto">
@@ -259,13 +263,64 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="ethnicity">Ethnicity</Label>
+          <Label htmlFor="city" className="text-gray-700">City</Label>
+          <Input
+            id="city"
+            value={formData.city}
+            onChange={(e) => handleChange("city", e.target.value)}
+            onBlur={() => handleBlur("city")}
+            className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.city ? "border-red-500" : ""}`}
+            placeholder="Enter your city"
+            aria-invalid={!!errors.city}
+            aria-describedby={errors.city ? "city-error" : undefined}
+          />
+          {errors.city && touched.city && (
+            <p className="text-sm text-red-500" id="city-error">{errors.city}</p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="country" className="text-gray-700">Country</Label>
           <Select
+            value={formData.country}
+            onValueChange={(value) => handleChange("country", value)}
+            onOpenChange={() => handleBlur("country")}
+          >
+            <SelectTrigger 
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.country && touched.country ? "border-red-500" : ""}`}
+            >
+              <SelectValue placeholder="Select your country" />
+            </SelectTrigger>
+            <SelectContent className="max-h-[200px] overflow-y-auto">
+              {Object.entries(countries).map(([continent, countryList]) => (
+                <div key={continent}>
+                  <div className="px-2 py-1.5 text-sm font-semibold text-gray-500 bg-gray-50">
+                    {continent}
+                  </div>
+                  {countryList.map((country) => (
+                    <SelectItem key={country.value} value={country.value}>
+                      {country.label}
+                    </SelectItem>
+                  ))}
+                </div>
+              ))}
+            </SelectContent>
+          </Select>
+          {errors.country && touched.country && (
+            <p className="text-sm text-red-500">{errors.country}</p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="ethnicity" className="text-gray-700">Ethnicity</Label>
+          <Select
+            value={formData.ethnicity}
             onValueChange={(value) => handleChange("ethnicity", value)}
-            defaultValue={formData.ethnicity}
             onOpenChange={() => handleBlur("ethnicity")}
           >
-            <SelectTrigger className="w-full">
+            <SelectTrigger 
+              className={`border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F] ${errors.ethnicity && touched.ethnicity ? "border-red-500" : ""}`}
+            >
               <SelectValue placeholder="Select your ethnicity" />
             </SelectTrigger>
             <SelectContent className="max-h-[200px] overflow-y-auto">
@@ -279,54 +334,6 @@ export function PersonalInfoStep({ onDataSubmit }: PersonalInfoStepProps) {
           {errors.ethnicity && touched.ethnicity && (
             <p className="text-sm text-red-500">{errors.ethnicity}</p>
           )}
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="city">City</Label>
-            <Input
-              id="city"
-              placeholder="Your city"
-              value={formData.city}
-              onChange={(e) => handleChange("city", e.target.value)}
-              onBlur={() => handleBlur("city")}
-              className={errors.city && touched.city ? "border-red-500" : ""}
-              aria-invalid={!!errors.city}
-              aria-describedby={errors.city ? "city-error" : undefined}
-            />
-            {errors.city && touched.city && (
-              <p className="text-sm text-red-500" id="city-error">{errors.city}</p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="country">Country</Label>
-            <Select
-              value={formData.country}
-              onValueChange={(value) => handleChange("country", value)}
-              onOpenChange={() => handleBlur("country")}
-            >
-              <SelectTrigger className={errors.country && touched.country ? "border-red-500" : ""}>
-                <SelectValue placeholder="Select country" />
-              </SelectTrigger>
-              <SelectContent className="max-h-[300px] overflow-y-auto">
-                {Object.entries(countries).map(([continent, countryList]) => (
-                  <div key={continent}>
-                    <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground bg-muted">
-                      {continent}
-                    </div>
-                    {countryList.map((country) => (
-                      <SelectItem key={country.value} value={country.value}>
-                        {country.label}
-                      </SelectItem>
-                    ))}
-                  </div>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.country && touched.country && (
-              <p className="text-sm text-red-500" id="country-error">{errors.country}</p>
-            )}
-          </div>
         </div>
       </form>
     </Card>

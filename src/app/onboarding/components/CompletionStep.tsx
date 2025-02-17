@@ -2,39 +2,29 @@
 
 import { Card } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
-interface CompletionStepProps {
-  onDataSubmit: () => void;
-}
-
-export function CompletionStep({ onDataSubmit }: CompletionStepProps) {
+export function CompletionStep() {
   return (
-    <Card className="p-6">
-      <form id="step-3-form" onSubmit={(e) => {
-        e.preventDefault();
-        onDataSubmit();
-      }}>
-        <div className="text-center space-y-6">
-          <div className="flex justify-center">
-            <CheckCircle className="h-16 w-16 text-primary" />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-xl font-semibold">You&apos;re all set!</h3>
-            <p className="text-muted-foreground">
-              Thank you for joining our waitlist. We&apos;ll keep you updated on our
-              progress and let you know when we&apos;re ready to launch.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-medium">What&apos;s next?</h4>
-            <ul className="text-sm text-muted-foreground space-y-2">
-              <li>• You&apos;ll receive a confirmation email shortly</li>
-              <li>• We&apos;ll send you updates about your position on the waitlist</li>
-              <li>• You&apos;ll be among the first to know when we launch</li>
-            </ul>
-          </div>
+    <Card className="p-6 border-gray-200 shadow-sm">
+      <div className="text-center space-y-6">
+        <div className="flex justify-center">
+          <CheckCircle className="h-16 w-16 text-[#6F459F]" />
         </div>
-      </form>
+        <div className="space-y-2">
+          <h3 className="text-2xl font-bold text-gray-900">Welcome to the Abantu Community!</h3>
+          <p className="text-gray-600">
+            Thank you for joining our waitlist. We&apos;re excited to have you on board!
+          </p>
+        </div>
+        <div className="pt-4">
+          <PrimaryButton
+            onClick={() => window.open('https://discord.gg/abantu', '_blank')}
+          >
+            Join our Discord
+          </PrimaryButton>
+        </div>
+      </div>
     </Card>
   );
 } 

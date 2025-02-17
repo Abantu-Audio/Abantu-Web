@@ -30,7 +30,7 @@ export function CollectionsSection() {
                   </p>
                 </div>
 
-                <div>
+                <div className="pb-6">
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">
                     Why They Matter
                   </h3>

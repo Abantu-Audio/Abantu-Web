@@ -18,10 +18,10 @@ export function WelcomeStep({ onDataSubmit }: WelcomeStepProps) {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 border-gray-200 shadow-sm">
       <form id="step-0-form" onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="email">Email address</Label>
+          <Label htmlFor="email" className="text-gray-700">Email address</Label>
           <Input
             id="email"
             type="email"
@@ -29,8 +29,9 @@ export function WelcomeStep({ onDataSubmit }: WelcomeStepProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="w-full border-gray-300 focus:border-[#6F459F] focus:ring-[#6F459F]"
           />
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-gray-600">
             We&apos;ll send you updates about your position on the waitlist and notify you when we launch.
           </p>
         </div>

@@ -6,12 +6,14 @@ import { ButtonProps } from "@/components/ui/button"
 export interface PrimaryButtonProps extends ButtonProps {
   fullWidth?: boolean;
   withArrow?: boolean;
+  buttonStyle?: 'primary' | 'secondary';
 }
 
 export function PrimaryButton({ 
   className, 
   fullWidth = false,
   withArrow = false,
+  buttonStyle = 'primary',
   size = "lg",
   children,
   ...props 
@@ -20,8 +22,10 @@ export function PrimaryButton({
     <Button
       size={size}
       className={cn(
-        "bg-[#6F459F] hover:bg-[#6F459F] text-white border-2 border-[#403554] shadow-[0_4px_0_0_rgba(51,51,51,1)] max-w-[200px] transition-all duration-50",
+        "border-2 border-[#403554] shadow-[0_4px_0_0_rgba(51,51,51,1)] max-w-[200px] transition-all duration-50",
         "hover:shadow-[0_2px_0_0_rgba(51,51,51,1)] hover:translate-y-[1px] hover:border-b-[1px]",
+        buttonStyle === 'primary' && "bg-[#6F459F] hover:bg-[#6F459F] text-white",
+        buttonStyle === 'secondary' && "bg-white hover:bg-gray-50 text-[#403554]",
         fullWidth ? "w-full" : "sm:w-auto",
         className
       )}

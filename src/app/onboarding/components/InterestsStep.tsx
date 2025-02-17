@@ -45,10 +45,10 @@ export function InterestsStep({ onDataSubmit }: InterestsStepProps) {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 border-gray-200 shadow-sm">
       <form id="step-2-form" onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-gray-600">
             Select the genres that interest you (select at least 3)
           </p>
           <div className="flex flex-wrap gap-2">
@@ -58,8 +58,10 @@ export function InterestsStep({ onDataSubmit }: InterestsStepProps) {
                 <Badge
                   key={genre}
                   variant={isSelected ? "default" : "outline"}
-                  className={`cursor-pointer ${
-                    isSelected ? "bg-primary" : "hover:bg-primary/10"
+                  className={`cursor-pointer transition-colors ${
+                    isSelected 
+                      ? "bg-[#6F459F] hover:bg-[#5D3B86] text-white border-transparent" 
+                      : "border-gray-300 text-gray-700 hover:border-[#6F459F] hover:text-[#6F459F]"
                   }`}
                   onClick={() => toggleGenre(genre)}
                 >
@@ -69,7 +71,7 @@ export function InterestsStep({ onDataSubmit }: InterestsStepProps) {
             })}
           </div>
           {selectedGenres.length < 3 && (
-            <p className="text-sm text-destructive">
+            <p className="text-sm text-red-500">
               Please select at least 3 genres to continue
             </p>
           )}
