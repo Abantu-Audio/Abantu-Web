@@ -19,7 +19,7 @@ export function CompletionStep() {
         </div>
         <div className="pt-4">
           <PrimaryButton
-            onClick={() => window.open('https://discord.gg/abantu', '_blank')}
+            onClick={() => window.open('https://discord.gg/megnXExhaT', '_blank')}
           >
             Join our Discord
           </PrimaryButton>
