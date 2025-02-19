@@ -101,9 +101,8 @@ export default function OnboardingPage() {
           }),
         });
 
-        const data = await response.json();
-
         if (!response.ok) {
+          const data = await response.json();
           throw new Error(data.message || 'Failed to submit waitlist form');
         }
 
@@ -111,6 +110,9 @@ export default function OnboardingPage() {
           title: "Success!",
           description: "You've been added to our waitlist. Check your email for next steps!",
         });
+        
+        // Only proceed to next step after successful email submission
+        setCurrentStep(currentStep + 1);
       } catch (error) {
         console.error('Waitlist submission error:', error);
         toast({
@@ -120,15 +122,11 @@ export default function OnboardingPage() {
         });
         return;
       }
-    }
-
-    // Final step (CompletionStep) just redirects home
-    if (currentStep === steps.length - 1) {
+    } else if (currentStep === steps.length - 1) {
+      // Final step (CompletionStep) just redirects home
       router.push('/');
-      return;
-    }
-
-    if (currentStep < steps.length - 1) {
+    } else {
+      // For all other steps, just proceed to next step
       setCurrentStep(currentStep + 1);
     }
   };
