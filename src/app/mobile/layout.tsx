@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: {
@@ -6,8 +6,14 @@ export const metadata: Metadata = {
     template: '%s | Abantu Audio'
   },
   description: 'Listen to your favorite audiobooks on Abantu Audio',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  themeColor: '#000000',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#121418'
 }
 
 export default function MobileWebLayout({
