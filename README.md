@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abantu Audio Platform
+
+This application contains both the marketing site and web application.
+
+## Structure
+- `/src/app/(marketing)`: Marketing pages (/)
+- `/src/app/app`: Web application (/app/*)
+- `/src/shared`: Shared components and utilities
+
+## Development
+- Local development: `npm run dev`
+  - Marketing: http://localhost:3000
+  - App: http://localhost:3000/app
+
+## Routes
+- Marketing routes: /, /about, /pricing, etc.
+- App routes: /app, /app/library, /app/player, etc.
+- Auth routes: /auth/login, /auth/register, etc.
+
+## Authentication
+- All routes under /app/* require authentication
+- Automatic redirect to login for unauthenticated users
 
 ## Getting Started
 

@@ -1,61 +1,16 @@
-import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Metadata, Viewport } from 'next';
 
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Abantu Audio | Curated Audiobooks',
-    template: '%s | Abantu Audio'
-  },
-  description: 'Discover curated audiobooks and dramas that amplify underrepresented voices. Explore stories that educate, inspire, and celebrate culture.',
-  manifest: '/manifest.json',
-  icons: {
-    icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' }
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#6F4597'
-      }
-    ]
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    minimumScale: 1,
-  },
-  themeColor: '#6F4597',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'Abantu Audio'
-  },
-  applicationName: 'Abantu Audio',
-  formatDetection: {
-    telephone: false
-  },
-  other: {
-    'msapplication-TileColor': '#6F4597',
-    'msapplication-config': '/browserconfig.xml'
-  }
-};
-
+// Root layout that applies to all routes
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <head>
@@ -74,3 +29,21 @@ export default function RootLayout({
     </html>
   );
 }
+
+// Remove the viewport from metadata if it exists
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Your App Name',
+    default: 'Your App Name',
+  },
+  description: 'Your app description',
+  // Remove viewport configuration from here if present
+};
+
+// Add separate viewport export
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};

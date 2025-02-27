@@ -1,3 +1,4 @@
+// This will be served at home.abantuaudio.com
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { StoriesSection } from "@/components/StoriesSection";
@@ -30,24 +31,6 @@ export const metadata: Metadata = {
     description: 'Discover and listen to culturally relevant audiobooks',
     images: ['/splash-hero.png'],
   },
-  manifest: '/manifest.json',
-  icons: {
-    icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' }
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-    ],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#6F4597'
-      }
-    ]
-  },
   robots: {
     index: true,
     follow: true,
@@ -61,18 +44,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="min-h-screen bg-white w-full">
       <div className="mx-auto">
         <Header />
         <HeroSection />
         <StoriesSection />
-        {/* <UniversityPressSection /> */}
         <CollectionsSection />
         <DiscordSection />
         <FooterSection />
       </div>
     </main>
   );
-}
+} 

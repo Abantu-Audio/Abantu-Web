@@ -34,9 +34,11 @@
     "howler": "^2.2.3",
     "lucide-react": "^0.441.0",
     "next": "14.2.11",
+    "next-seo": "^6.6.0",
     "react": "^18",
     "react-dom": "^18",
     "react-resizable": "^3.0.5",
+    "schema-dts": "^1.1.2",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
