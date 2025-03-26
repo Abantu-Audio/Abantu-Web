@@ -7,10 +7,13 @@ const schema = a.schema({
       firstName: a.string(),
       lastName: a.string(),
       phoneNumber: a.string(),
-      status: a.enum(['PENDING', 'CONTACTED', 'APPROVED', 'REJECTED']).required().default('PENDING'),
+      status: a.enum(['PENDING', 'CONTACTED', 'APPROVED', 'REJECTED']),
       notes: a.string(),
     })
-    .authorization([a.allow.public('create'), a.allow.private('read', 'update')]),
+    .authorization(allow => [
+      allow.owner().to(['create']),
+      allow.authenticated().to(['read', 'update'])
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
