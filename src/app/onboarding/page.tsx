@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { WelcomeStep } from "./components/WelcomeStep";
@@ -12,6 +12,10 @@ import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { generateClient } from 'aws-amplify/api';
+import { Amplify } from 'aws-amplify';
+import { createProspect } from '@/graphql/mutations';
+import { amplifyConfig } from '@/config/amplify';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -32,6 +36,17 @@ interface OnboardingData {
   location?: string;
   ethnicity?: string;
   genres?: string[];
+}
+
+interface CreateProspectResponse {
+  data?: {
+    createProspect: {
+      id: string;
+      email: string;
+      status: string;
+    };
+  };
+  errors?: Array<{ message: string }>;
 }
 
 interface StepComponentProps {
@@ -67,14 +82,49 @@ export default function OnboardingPage() {
   const [formData, setFormData] = useState<OnboardingData>({});
   const [showExitDialog, setShowExitDialog] = useState(false);
   const { toast } = useToast();
+  const [isConfigured, setIsConfigured] = useState(false);
+  const client = generateClient();
+
+  // Configure Amplify on the client side
+  useEffect(() => {
+    try {
+      console.log('Configuring Amplify with:', {
+        endpoint: amplifyConfig.API.GraphQL.endpoint,
+        region: amplifyConfig.API.GraphQL.region,
+        hasApiKey: !!amplifyConfig.API.GraphQL.apiKey,
+      });
+      
+      Amplify.configure(amplifyConfig, { ssr: true });
+      setIsConfigured(true);
+      console.log('Amplify configured successfully');
+    } catch (error) {
+      console.error('Amplify configuration error:', error);
+      toast({
+        title: "Configuration Error",
+        description: "There was an error setting up the application. Please try again later.",
+        variant: "destructive",
+      });
+    }
+  }, [toast]);
+
   const progress = ((currentStep + 1) / steps.length) * 100;
 
   const handleStepSubmit = async (stepData: Partial<OnboardingData>) => {
     const newFormData = { ...formData, ...stepData };
     setFormData(newFormData);
 
-    // Trigger email submission at step 3 (InterestsStep)
+    // Trigger prospect creation at step 3 (InterestsStep)
     if (currentStep === 2) {
+      if (!isConfigured) {
+        console.error('Amplify not configured');
+        toast({
+          title: "Error",
+          description: "The application is not properly configured. Please try again later.",
+          variant: "destructive",
+        });
+        return;
+      }
+
       if (!newFormData.email) {
         toast({
           title: "Error",
@@ -85,25 +135,40 @@ export default function OnboardingPage() {
       }
 
       try {
-        const response = await fetch('https://630s4yxw17.execute-api.us-east-1.amazonaws.com/dev/email/waitlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: newFormData.email,
-            firstName: newFormData.firstName || undefined,
-            lastName: newFormData.lastName || undefined,
-            location: newFormData.location || undefined,
-            age: newFormData.age || undefined,
-            ethnicity: newFormData.ethnicity || undefined,
-            genres: newFormData.genres || undefined,
-          }),
+        console.log('Submitting prospect data:', {
+          email: newFormData.email,
+          firstName: newFormData.firstName || null,
+          lastName: newFormData.lastName || null,
+          hasAge: !!newFormData.age,
+          hasLocation: !!newFormData.location,
+          hasEthnicity: !!newFormData.ethnicity,
+          genresCount: newFormData.genres?.length || 0,
         });
 
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.message || 'Failed to submit waitlist form');
+        const result = await client.graphql({
+          query: createProspect,
+          variables: {
+            input: {
+              email: newFormData.email,
+              firstName: newFormData.firstName || null,
+              lastName: newFormData.lastName || null,
+              age: newFormData.age || null,
+              location: newFormData.location || null,
+              ethnicity: newFormData.ethnicity || null,
+              genres: newFormData.genres || [],
+              status: 'PENDING'
+            }
+          }
+        }) as CreateProspectResponse;
+
+        console.log('GraphQL response:', result);
+
+        if (result.errors && result.errors.length > 0) {
+          throw new Error(result.errors[0].message);
+        }
+
+        if (!result.data?.createProspect) {
+          throw new Error('Failed to create prospect');
         }
 
         toast({
@@ -111,10 +176,16 @@ export default function OnboardingPage() {
           description: "You've been added to our waitlist. Check your email for next steps!",
         });
         
-        // Only proceed to next step after successful email submission
+        // Only proceed to next step after successful submission
         setCurrentStep(currentStep + 1);
       } catch (error) {
-        console.error('Waitlist submission error:', error);
+        console.error('Waitlist submission error:', {
+          error,
+          isError: error instanceof Error,
+          message: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined,
+        });
+        
         toast({
           title: "Error",
           description: error instanceof Error ? error.message : "Failed to join the waitlist. Please try again.",

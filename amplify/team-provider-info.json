@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abantuweb-dev-4ef20-authRole",
+      "UnauthRoleArn": "arn:aws:iam::590183988999:role/amplify-abantuweb-dev-4ef20-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::590183988999:role/amplify-abantuweb-dev-4ef20-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-abantuweb-dev-4ef20-deployment",
+      "UnauthRoleName": "amplify-abantuweb-dev-4ef20-unauthRole",
+      "StackName": "amplify-abantuweb-dev-4ef20",
+      "StackId": "arn:aws:cloudformation:us-east-1:590183988999:stack/amplify-abantuweb-dev-4ef20/e6289460-0a3c-11f0-897a-0e0775607411",
+      "AmplifyAppId": "d1ei000crfje1m"
+    },
+    "categories": {
+      "api": {
+        "abantuweb": {}
+      }
+    }
+  }
+}
