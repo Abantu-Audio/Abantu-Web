@@ -145,6 +145,29 @@ export default function OnboardingPage() {
           genresCount: newFormData.genres?.length || 0,
         });
 
+        // First, send the welcome email
+        const emailResponse = await fetch('https://630s4yxw17.execute-api.us-east-1.amazonaws.com/dev/email/waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: newFormData.email,
+            firstName: newFormData.firstName || undefined,
+            lastName: newFormData.lastName || undefined,
+            location: newFormData.location || undefined,
+            age: newFormData.age || undefined,
+            ethnicity: newFormData.ethnicity || undefined,
+            genres: newFormData.genres || undefined,
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          const data = await emailResponse.json();
+          throw new Error(data.message || 'Failed to submit waitlist form');
+        }
+
+        // Then create the prospect in the database
         const result = await client.graphql({
           query: createProspect,
           variables: {
