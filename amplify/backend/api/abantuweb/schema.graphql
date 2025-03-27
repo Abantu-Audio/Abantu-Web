@@ -1,0 +1,27 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type Prospect @model {
+  id: ID!
+  email: String! @index(name: "byEmail", sortKeyFields: ["createdAt"])
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  age: String
+  location: String
+  ethnicity: String
+  genres: [String]
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: ProspectStatus! @default(value: "PENDING")
+  notes: String
+}
+
+enum ProspectStatus {
+  PENDING
+  CONTACTED
+  APPROVED
+  REJECTED
+}

@@ -1,0 +1,18 @@
+type Prospect @model {
+  id: ID!
+  email: String! @index(name: "byEmail", sortKeyFields: ["createdAt"])
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: ProspectStatus! @default(value: "PENDING")
+  notes: String
+}
+
+enum ProspectStatus {
+  PENDING
+  CONTACTED
+  APPROVED
+  REJECTED
+} 
